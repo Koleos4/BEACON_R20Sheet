@@ -13,7 +13,7 @@ main {
   grid-template-areas:"header header  header  header"
                       "skill  common  common  power"
                       "skill  attack  inv     power"
-                      "misc   misc    inv     power"
+                      "misc   misc    inv     talent"
                       "footer footer  footer  footer";
 }
 
@@ -105,6 +105,11 @@ section {
 
 .power .repcontainer[data-groupname="repeating_power"] .repitem{
   margin: 4px 0px;
+}
+
+.talent {
+  grid-area: talent;
+  background-col0r: blue;
 }
 
 .attack {
