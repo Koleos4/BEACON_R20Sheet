@@ -109,7 +109,7 @@ section {
 
 .talent {
   grid-area: talent;
-  background-col0r: blue;
+  background-color: blue;
 }
 
 .attack {
