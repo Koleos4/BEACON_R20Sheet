@@ -94,6 +94,10 @@ section {
   background-color: brown;
 }
 
+.bio {
+  grid-area: bio;
+}
+
 .power {
   grid-area: power;
   background-color: coral;
