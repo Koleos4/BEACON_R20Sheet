@@ -1,0 +1,123 @@
+<main>
+  <section class="header f-center">
+    <h1>BEACON RPG</h1>
+    <span>god we really need to change these colors</span>
+  </section>
+
+  <section class="common">
+    <label>Name: <input name="attr_character_name" type="text"></label>
+    <label>Class: <input name="attr_class" type="text" ></label>
+    <label>Ancestry: <input name="attr_ancestry" type="text" ></label>
+  </section>
+  
+  <section class="common">
+      <h3>STATS</h3>
+      <label>Grit <input name="attr_grit" type="number"> </label>
+      <label>Size <input name="attr_size" type="number"> </label>
+      <label>Dodge <input name="attr_dodge" type="number"> </label>
+      <label>A-Def <input name="attr_a-def" type="number"> </label>
+      <label>Save Target <input name="attr_save" type="number"> </label>
+      <label>Scope <input name="attr_scope" type="number"> </label>
+      <label>Speed <input name="attr_speed" type="number"> </label>
+  </section>
+
+<section class="skill f-col nowrap">
+    <h3>ABILITIES</h3>
+    <div class="f-row nowrap">
+      <label>Bulk</label>
+      <input type="number" name="attr_blk" value=" ">
+      <button type="roll" name="roll_blk" value="&{template:rolls} {{title=Bulk}} {{subtitle=@{character_name} }} {{roll= [[1d20+@{blk} +?{Accuracy/Difficulty|0}d6k1]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Agility</label>
+      <input type="number" name="attr_agi" value=" ">
+      <button type="roll" name="roll_agi" value="&{template:rolls} {{title=Agility}} {{subtitle=@{character_name} }} {{roll= [[d20+@{agi}[agi] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Mind</label>
+      <input type="number" name="attr_mnd" value="3">
+      <button type="roll" name="roll_mnd" value="&{template:rolls} {{title=Mind}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mnd}[mnd] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Magic</label>
+      <input type="number" name="attr_mgk" value="3">
+      <button type="roll" name="roll_mgk" value="&{template:rolls} {{title=Magic}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mgk}[mgk] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
+    </div>
+  </section>
+
+  <section class="f-col nowrap">
+      <h3>BARS</h3>
+      <label>HP <input type="number" name="attr_hp" value=" "> / <input type="number" name="attr_hp_max" value=" "></label>
+      <label>Temp HP <input type="number" name="attr_hp" value=" "></label>
+      <label>Stress <input type="number" name="attr_stress" value=" "> / <input type="number" name="attr_stress_cap" value=" "></label>
+      <label>Mana <input type="number" name="attr_mana" value=" "> / <input type="number" name="attr_mana_max" value=" "></label>
+      <label>Recoveries <input type="number" name="attr_rec" value=" "> / <input type="number" name="attr_rec_max" value=" "></label>
+      <label>Parry <input type="number" name="attr_parry" value=" ">
+  </section>
+
+ <section class="power f-col">
+    <h3>Talents</h3>
+    <div class="f-col nowrap">
+      <label>Stealth </label>
+      <div class="f-row nowrap">
+        <input type="number" name="attr_stealth" value="0">
+        <button type="roll" name="roll_stealth" value="&{template:rolls} {{title=Stealth}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{stealth}[stealth]) ]]}}"> </button>
+      </div>
+    </div>
+    <div class="f-col nowrap">
+      <label>Grapple </label>
+      <div class="f-row nowrap">
+        <input type="number" name="attr_grapple" value="0">
+        <button type="roll" name="roll_grapple" value="&{template:rolls} {{title=Grapple}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{body}[body])+(@{grapple}[grapple]) ]]}}"> </button>
+      </div>
+    </div>   
+  </section>
+
+  <section class="power f-col">
+    <h3>Spells & Techniques</h3>
+    <fieldset class="repeating_power">
+        <input name="attr_power" type="text" >
+    </fieldset>
+  </section>
+
+  <section class="attack">
+    <h3>Attacks</h3>
+    <textarea name="attr_attacks"></textarea>
+  </section>
+
+  <section class="inv">
+    <h3>Support Items</h3>
+    <textarea name="attr_inventory"></textarea>
+  </section>
+
+  <section class="misc">
+    <h3>Ancestry and Job Traits</h3>
+    <Label> Ancestry Trait <input name="attr_anc_trait", type="text"> </Label>
+    <Label> Job Trait 1 <input name="attr_job_trait1", type="text"> </Label>
+    <Label> Job Trait 2 <input name="attr_job_trait2", type="text"> </Label>
+    <Label> Job Trait 3 <input name="attr_job_trait3", type="text"> </Label>
+  </section>
+
+  <footer class="f-col f-center">
+    <span>Generic copyright disclaimer</span>
+  </footer>
+</main>
+
+<!-- roll template -->
+
+<rolltemplate class="sheet-rolltemplate-rolls">
+  <div class="sheet-container">
+    <div class="sheet-header">
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#name}}<div class="sheet-name">{{name}}</div>{{/name}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title name subtitle desc}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>
+      {{/allprops() title name subtitle desc}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+  </div>
+</rolltemplate>
