@@ -11,8 +11,8 @@ main {
   grid-template-columns: 160px 1fr 1fr 1fr;
   grid-template-rows: 90px 1fr 1fr 1fr 20px;
   grid-template-areas:"header header  header  header"
-                      "skill  bars  bars  power"
-                      "stats  attack  inv     power"
+                      "skill  bars    bars    power"
+                      "stats  attack  attack  power"
                       "misc   misc    inv     talent"
                       "footer footer  footer  footer";
 }
