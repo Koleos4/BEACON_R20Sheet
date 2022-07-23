@@ -11,8 +11,8 @@ main {
   grid-template-columns: 160px 1fr 1fr 1fr;
   grid-template-rows: 90px 1fr 1fr 1fr 20px;
   grid-template-areas:"header header  header  header"
-                      "skill  common  common  power"
-                      "skill  attack  inv     power"
+                      "skill  bars  bars  power"
+                      "stats  attack  inv     power"
                       "misc   misc    inv     talent"
                       "footer footer  footer  footer";
 }
@@ -109,7 +109,6 @@ section {
 
 .talent {
   grid-area: talent;
-  background-color: blue;
 }
 
 .attack {
@@ -120,6 +119,14 @@ section {
 .inv {
   grid-area: inv;
   background-color: grey;
+}
+
+.bars {
+  grid-area: bars;
+}
+
+.stats {
+  grid-area: stats;
 }
 
 .misc {
