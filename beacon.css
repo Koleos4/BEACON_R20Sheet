@@ -5,16 +5,16 @@
 */
 main {
   display: grid;
-  width: 800px;
+  width: 1000px;
   height: 900px;
   grid-gap: 4px;
-  grid-template-columns: 160px 1fr 1fr 1fr;
+  grid-template-columns: 200px 1fr 1fr 1fr;
   grid-template-rows: 90px 1fr 1fr 1fr 20px;
-  grid-template-areas:"bio    header  header  header"
-                      "skill  bars    bars    power"
-                      "stats  attack  attack  power"
-                      "misc   misc    inv     talent"
-                      "footer footer  footer  footer";
+  grid-template-areas:"header   header  header  header"
+                      "skill    bars    bars    power"
+                      "stats    attack  attack  power"
+                      "misc     inv     inv     talent"
+                      "footer   footer  footer  footer";
 }
 
 /*----------------- GENERAL CSS ------------------*/
@@ -75,6 +75,29 @@ section {
   height: 85%;
 }
 
+.charsheet input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
+.charsheet input.sheet-toggle-hide:checked ~ div.sheet-body {
+    display: none;
+}
+
+.autoExpand {
+    overflow: hidden; /* hides overflow that is caused by the span */
+    position: relative; /* Allows the input's absolute positioning to be relative to this parent div */
+    min-width: 50px; /* Whatever feels good to you, prevents a new span from collapsing to 0. */
+    width: fit-content; /* Will fit the width to the contents without going outside itself or collapsing smaller than its content, though we will be using min-width in the case where there's no content. */
+    height: 20px; /* Prevent the span from defining the height of the input container which can't be multiline */
+}
+.autoExpand span {
+    visibility: hidden;
+    font-size: 1em;
+    padding: 0 8px; /* Matching my input's padding so that the widths are correct */
+}
+.autoExpand input {
+    position: absolute; /* removes the input from the DOM flow, allowing the span to exist in the same space */
+    width: 100%; /* Inputs match the width of the parent element as defined by the spans */
+    font-size: 1em;
+}
+
 /*------------- Section-specific CSS -------------*/
 
 .header {
@@ -85,22 +108,16 @@ section {
 
 .skill {
   grid-area: skill;
-  background-color: orange;
-  justify-content: space-evenly;
+  box-sizing: border-box;
 }
 
 .common {
   grid-area: common;
-  background-color: brown;
-}
-
-.bio {
-  grid-area: bio;
 }
 
 .power {
   grid-area: power;
-  background-color: coral;
+  background-color: #0070C0;
 }
 
 .power .repcontainer[data-groupname="repeating_power"]{
@@ -115,6 +132,14 @@ section {
   grid-area: talent;
 }
 
+.bars {
+    grid-area: bars;
+}
+
+.stats {
+    grid-area: stats;
+}
+
 .attack {
   grid-area: attack;
   background-color: green;
@@ -122,20 +147,12 @@ section {
 
 .inv {
   grid-area: inv;
-  background-color: grey;
-}
-
-.bars {
-  grid-area: bars;
-}
-
-.stats {
-  grid-area: stats;
+  background-color: #984807;
 }
 
 .misc {
   grid-area: misc;
-  background-color: chocolate;
+  background-color: #C22026;
 }
 
 footer {
