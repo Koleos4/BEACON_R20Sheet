@@ -8,13 +8,13 @@ main {
   width: 1000px;
   height: 900px;
   grid-gap: 4px;
-  grid-template-columns: 200px 1fr 1fr 1fr;
+  grid-template-columns: 200px 1fr 1fr 1fr 1fr;
   grid-template-rows: 90px 1fr 1fr 1fr 20px;
-  grid-template-areas:"header   header  header  header"
-                      "skill    bars    bars    power"
-                      "stats    attack  attack  power"
-                      "misc     inv     inv     talent"
-                      "footer   footer  footer  footer";
+  grid-template-areas:"header   header	header  header  header"
+                      "skill    skill	bars    bars    power"
+                      "stats    stats	attack  attack  power"
+                      "misc     misc	inv     inv     talent"
+                      "footer   footer	footer  footer  footer";
 }
 
 /*----------------- GENERAL CSS ------------------*/
@@ -23,6 +23,21 @@ section {
     padding: 5px;
     border-style: solid;
 }
+
+
+/*loren*/
+section.stats div {width:70px; display:inline-block;}
+section.stats input {margin-right:55px;}
+section.skill div {width:70px; display:inline-block;}
+section.skill div.f-row {text-align:center;}
+section.skill input {width:70%;}
+section.skill div div {width:70px; display:inline-block;}
+
+section.bars div {width:100px; display:inline-block;}
+section.bars div.f-row {text-align:center;}
+section.bars div div {width:100px; display:inline-block;}
+/*loren*/
+
 
 /* CSS Flexbox styling, used for adjusting how content inside section behaves */
 .f-col {
