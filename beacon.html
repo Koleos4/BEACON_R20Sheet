@@ -4,25 +4,10 @@
     <span>god we really need to change these colors</span>
   </section>
 
-  <section class="bio common">
-    <label>Name: <input name="attr_character_name" type="text"></label>
-    <label>Class: <input name="attr_class" type="text" ></label>
-    <label>Ancestry: <input name="attr_ancestry" type="text" ></label>
-  </section>
-  
-  <section class="stats common">
-      <h3>STATS</h3>
-      <label>Grit <input name="attr_grit" type="number"> </label>
-      <label>Size <input name="attr_size" type="number"> </label>
-      <label>Dodge <input name="attr_dodge" type="number"> </label>
-      <label>A-Def <input name="attr_a-def" type="number"> </label>
-      <label>Save Target <input name="attr_save" type="number"> </label>
-      <label>Scope <input name="attr_scope" type="number"> </label>
-      <label>Speed <input name="attr_speed" type="number"> </label>
-  </section>
-
 <section class="skill f-col nowrap">
-    <h3>ABILITIES</h3>
+    <label>Name: <input name="attr_character_name" type="text"> </label>
+    <label>Job: <input name="attr_job" type="text" list="jobs"> </label>
+    <label>Ancestry: <input name="attr_ancestry" type="text" list="ancestries"> </label>
     <div class="f-row nowrap">
       <label>Bulk</label>
       <input type="number" name="attr_blk" value=" ">
@@ -45,61 +30,105 @@
     </div>
   </section>
 
+  <section class="stats common">
+      <h3>STATS</h3>
+      <label>Grit <input name="attr_grit" type="number"> </label>
+      <label>Size <input name="attr_size" type="number"> </label>
+      <label>Dodge <input name="attr_dodge" type="number"> </label>
+      <label>A-Def <input name="attr_a-def" type="number"> </label>
+      <label>Save Target <input name="attr_save" type="number"> </label>
+      <label>Scope <input name="attr_scope" type="number"> </label>
+      <label>Speed <input name="attr_speed" type="number"> </label>
+  </section>
+
   <section class="bars f-col nowrap">
       <h3>BARS</h3>
-      <label>HP <input type="number" name="attr_hp" value=" "> / <input type="number" name="attr_hp_max" value=" "></label>
-      <label>Temp HP <input type="number" name="attr_hp" value=" "></label>
-      <label>Stress <input type="number" name="attr_stress" value=" "> / <input type="number" name="attr_stress_cap" value=" "></label>
-      <label>Mana <input type="number" name="attr_mana" value=" "> / <input type="number" name="attr_mana_max" value=" "></label>
+      <label> Armor <input type="number" name="attr_armor" value=""</label>
+      <label>HP <input type="number" name="attr_3 hp" value=" "> / <input type="number" name="attr_3 hp_max" value=" "></label>
+      <label>Temp HP <input type="number" name="attr_temphp" value=" "></label>
+      <label>Stress <input type="number" name="attr_1 stress cap" value=" "> / <input type="number" name="attr_1 stress cap_max" value=" "></label>
+      <label>Mana <input type="number" name="attr_2 mana" value=" "> / <input type="number" name="attr_2 mana_max" value=" "></label>
       <label>Recoveries <input type="number" name="attr_rec" value=" "> / <input type="number" name="attr_rec_max" value=" "></label>
       <label>Parry <input type="number" name="attr_parry" value=" ">
   </section>
 
- <section class="talent f-col">
-    <h3>Talents</h3>
-    <div class="f-col nowrap">
-      <label>Stealth </label>
-      <div class="f-row nowrap">
-        <input type="number" name="attr_stealth" value="0">
-        <button type="roll" name="roll_stealth" value="&{template:rolls} {{title=Stealth}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{stealth}[stealth]) ]]}}"> </button>
-      </div>
-    </div>
-    <div class="f-col nowrap">
-      <label>Grapple </label>
-      <div class="f-row nowrap">
-        <input type="number" name="attr_grapple" value="0">
-        <button type="roll" name="roll_grapple" value="&{template:rolls} {{title=Grapple}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{body}[body])+(@{grapple}[grapple]) ]]}}"> </button>
-      </div>
-    </div>   
-  </section>
-
-  <section class="power f-col">
-    <h3>Spells & Techniques</h3>
-    <fieldset class="repeating_power">
-        <input name="attr_power" type="text" >
+  <section class="attack">
+    <h3>Attacks</h3>
+    <fieldset class="repeating_attacks">
+        <input type="checkbox" class="sheet-toggle-show" >
+        <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name} }} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]]}} {{Effects=@{attackeffects}}}" > </button>
+        <input type="text" name="attr_attackname" value="">
+        <div class="sheet-body">
+        <label>Type<input type="text" name="attr_attacktype" value=""></label>
+        <label>Range<input type="text" name="attr_attackrange" value=""></label>
+        <label>Tags<input type="text" name="attr_attacktags" value=""></label>
+        <label>Damage<input type="text" name="attr_attackdamage" value=""></label>
+        <label>Effects<input type="text" name="attr_attackeffects" value=""></label>
+        </div>
     </fieldset>
   </section>
 
-  <section class="attack">
-    <h3>Attacks</h3>
-    <textarea name="attr_attacks"></textarea>
+<section class="power f-col">
+    <h3>Spells & Techniques</h3>
+    <fieldset class="repeating_powers">
+        <input type="checkbox" class="sheet-toggle-show" >
+        <button type="roll" name="roll_power" value="&{template:rolls} {{title=@{powername}}} {{subtitle=@{character_name} }} {{Type=@{powertype}}} {{Action=@{poweraction}}} {{Range=@{powerrange}}} {{Tags=@{powertags}}} {{Effects=@{powereffects}}}" > </button>
+        <input type="text" name="attr_powername" value="">
+        <div class="sheet-body">
+        <label>Type<input type="text" name="attr_powertype" value=""></label>
+        <label>Action<input type="text" name="attr_poweraction" value=""></label>
+        <label>Range<input type="text" name="attr_powerrange" value=""></label>
+        <label>Tags<input type="text" name="attr_powertags" value=""></label>
+        <label>Effects<input type="text" name="attr_powereffects" value=""></label>
+        </div>
+    </fieldset>
   </section>
 
-  <section class="inv">
+<section class="inv">
     <h3>Support Items</h3>
-    <textarea name="attr_inventory"></textarea>
+    <fieldset class="repeating_support">
+        <input type="checkbox" class="sheet-toggle-show" >
+        <button type="roll" name="roll_support" value="&{template:rolls} {{title=@{supportname}}} {{subtitle=@{character_name}}} {{Type=@{supporttype}}} {{Action=@{supportaction}}} {{Range=@{supportrange}}} {{Tags=@{supporttags}}} {{Effects=@{supporteffects}}}"> </button>
+        <input type="text" name="attr_supportname" value="">
+        <div class="sheet-body"
+        <label>Type<input type="text" name="attr_supporttype" value=""></label>
+        <label>Action<input type="text" name="attr_supportaction" value=""></label>
+        <label>Range<input type="text" name="attr_supportrange" value=""></label>
+        <label>Tags<input type="text" name="attr_supporttags" value=""></label>
+        <label>Effects<input type="text" name="attr_supporteffects" value=""></label>
+        </div>
   </section>
+
+ <section class="talent f-col">
+    <h3>Talents</h3>
+   <fieldset class="repeating_talent">
+        <input type="checkbox" class="sheet-toggle-show" >
+        <button type="roll" name="roll_talent" value="&{template:rolls} {{title=@{talentname}}} {{subtitle=@{character_name}}} {{Effects=@{talenteffects}}}"> </button>
+        <input type="text" name="attr_talentname" value="">
+        <div class="sheet-body">
+        <input type="text" name="attr_talenteffects" value="">
+        </div>
+</section>
 
   <section class="misc">
     <h3>Ancestry and Job Traits</h3>
-    <Label> Ancestry Trait <input name="attr_anc_trait", type="text"> </Label>
-    <Label> Job Trait 1 <input name="attr_job_trait1", type="text"> </Label>
-    <Label> Job Trait 2 <input name="attr_job_trait2", type="text"> </Label>
-    <Label> Job Trait 3 <input name="attr_job_trait3", type="text"> </Label>
-  </section>
+    <input type="checkbox" class="sheet-toggle-show" >
+    <button type="roll" name="roll_anc" value="&{template:default} {{Trait=@{anctraitname}}} {{Effect=@{anctrait}}}" ></button>
+    <Label> Ancestry Trait <input name="attr_anctraitname", type="text"> </label>
+    <div class="sheet-body">
+    <input name="attr_anctrait", type="text"> </div>
+    <fieldset class="repeating_trait">
+    <input type="checkbox" class="sheet-toggle-show" >
+    <button type="roll" name="roll_trait" value="&{template:default} {{Trait=@{traitname}}} {{Effect=@{traiteffect}}}" ></button>
+    <input name="attr_traitname", type="text"> 
+    <div class="sheet-body">
+    <input name="attr_traiteffect", type="text"> </div>
+    </fieldset>
+    </section>
 
   <footer class="f-col f-center">
     <span>Generic copyright disclaimer</span>
+    <span>BEACON created by Tim Gonzalez & Pirate Gonzalez Games. This sheet is a modification of Anduh's Roll20-grid-template - thank you very much for the template. </span>
   </footer>
 </main>
 
@@ -121,3 +150,52 @@
     </div>
   </div>
 </rolltemplate>
+
+<!-- hidden lists -->
+
+<datalist id="jobs">
+    <option value="Aegis">Aegis</option>
+    <option value="Alchemist">Alchemist</option>
+    <option value="Arsenal">Arsenal</option>
+    <option value="Assassin">Assassin</option>
+    <option value="Berserker">Berserker</option>
+    <option value="Chronomancer">Chronomancer</option>
+    <option value="Demon Hunter">Demon Hunter</option>
+    <option value="Demonologist">Demonologist</option>
+    <option value="Dragon Rider">Dragon Rider</option>
+    <option value="Druid">Druid</option>
+    <option value="Gravewalker">Gravewalker</option>
+    <option value="Gunslinger">Gunslinger</option>
+    <option value="Hexblade">Hexblade</option>
+    <option value="Lifeweaver">Lifeweaver</option>
+    <option value="Paladin">Paladin</option>
+    <option value="Phoenix">Phoenix</option>
+    <option value="Riftblade">Riftblade</option>
+    <option value="Rimeguard">Rimeguard</option>
+    <option value="Seeker">Seeker</option>
+    <option value="Shadow Dancer">Shadow Dancer</option>
+    <option value="Shapeshifter">Shapeshfiter</option>
+    <option value="Skald">Skald</option>
+    <option value="Thunderclaw">Thunderclaw</option>
+    <option value="Tidecaller">Tidecaller</option>
+    <option value="Warden">Warden</option>
+    <option value="Warlord">Warlord</option>
+</datalist>
+
+<datalist id="ancestries">
+    <option value="Avian">Avian</option>
+    <option value="Cambion">Cambion</option>
+    <option value="Dragonborn">Dragonborn</option>
+    <option value="Dwarf">Dwarf</option>
+    <option value="Elemental">Elemental</option>
+    <option value="Elf">Elf</option>
+    <option value="Gigan">Gigan</option>
+    <option value="Gnome">Gnome</option>
+    <option value="Goblin">Goblin</option>
+    <option value="Halfling">Halfling</option>
+    <option value="Human">Human</option>
+    <option value="Kobold">Kobold</option>
+    <option value="Lycanthrope">Lycanthrope</option>
+    <option value="Machina">Machina</option>
+    <option value="Orc">Orc</option>
+</datalist>
