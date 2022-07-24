@@ -4,27 +4,27 @@
     <span>god we really need to change these colors</span>
   </section>
 
-<section class="skill f-col nowrap">
-    <label>Name: <input name="attr_character_name" type="text"> </label>
-    <label>Job: <input name="attr_job" type="text" list="jobs"> </label>
-    <label>Ancestry: <input name="attr_ancestry" type="text" list="ancestries"> </label>
+<section class="skill">
+    <div>Name:</div> <input name="attr_character_name" type="text">
+    <div>Job:</div> <input name="attr_job" type="text" list="jobs">
+    <div>Ancestry:</div> <input name="attr_ancestry" type="text" list="ancestries">
     <div class="f-row nowrap">
-      <label>Bulk</label>
+      <div>Bulk</div>
       <input type="number" name="attr_blk" value=" ">
       <button type="roll" name="roll_blk" value="&{template:rolls} {{title=Bulk}} {{subtitle=@{character_name} }} {{roll= [[1d20+@{blk} +?{Accuracy/Difficulty|0}d6k1]]}}"> </button>
     </div>
     <div class="f-row nowrap">
-      <label>Agility</label>
+      <div>Agility</div>
       <input type="number" name="attr_agi" value=" ">
       <button type="roll" name="roll_agi" value="&{template:rolls} {{title=Agility}} {{subtitle=@{character_name} }} {{roll= [[d20+@{agi}[agi] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
     </div>
     <div class="f-row nowrap">
-      <label>Mind</label>
+      <div>Mind</div>
       <input type="number" name="attr_mnd" value="3">
       <button type="roll" name="roll_mnd" value="&{template:rolls} {{title=Mind}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mnd}[mnd] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
     </div>
     <div class="f-row nowrap">
-      <label>Magic</label>
+      <div>Magic</div>
       <input type="number" name="attr_mgk" value="3">
       <button type="roll" name="roll_mgk" value="&{template:rolls} {{title=Magic}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mgk}[mgk] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
     </div>
@@ -32,24 +32,24 @@
 
   <section class="stats common">
       <h3>STATS</h3>
-      <label>Grit <input name="attr_grit" type="number"> </label>
-      <label>Size <input name="attr_size" type="number"> </label>
-      <label>Dodge <input name="attr_dodge" type="number"> </label>
-      <label>A-Def <input name="attr_a-def" type="number"> </label>
-      <label>Save Target <input name="attr_save" type="number"> </label>
-      <label>Scope <input name="attr_scope" type="number"> </label>
-      <label>Speed <input name="attr_speed" type="number"> </label>
+      <div>Grit</div><input name="attr_grit" type="number">
+      <div>Size</div><input name="attr_size" type="number"><br/>
+      <div>Dodge</div><input name="attr_dodge" type="number">
+      <div>A-Def</div><input name="attr_a-def" type="number"><br/>
+      <div>Save Target</div><input name="attr_save" type="number">
+      <div>Scope</div><input name="attr_scope" type="number"><br/>
+      <div>Speed</div><input name="attr_speed" type="number">
   </section>
 
-  <section class="bars f-col nowrap">
+  <section class="bars">
       <h3>BARS</h3>
-      <label> Armor <input type="number" name="attr_armor" value=""</label>
-      <label>HP <input type="number" name="attr_3 hp" value=" "> / <input type="number" name="attr_3 hp_max" value=" "></label>
-      <label>Temp HP <input type="number" name="attr_temphp" value=" "></label>
-      <label>Stress <input type="number" name="attr_1 stress cap" value=" "> / <input type="number" name="attr_1 stress cap_max" value=" "></label>
-      <label>Mana <input type="number" name="attr_2 mana" value=" "> / <input type="number" name="attr_2 mana_max" value=" "></label>
-      <label>Recoveries <input type="number" name="attr_rec" value=" "> / <input type="number" name="attr_rec_max" value=" "></label>
-      <label>Parry <input type="number" name="attr_parry" value=" ">
+      <div>Armor</div> <input type="number" name="attr_armor" value="">
+      <div>Parry</div> <input type="number" name="attr_parry" value=" ">
+      <div>Temp HP</div> <input type="number" name="attr_temphp" value=" "><br/>
+      <div>HP</div> <input type="number" name="attr_3 hp" value=" "> <span>/</span> <input type="number" name="attr_3 hp_max" value=" "><br/>
+      <div>Stress</div> <input type="number" name="attr_1 stress cap" value=" "> / <input type="number" name="attr_1 stress cap_max" value=" "><br/>
+      <div>Mana</div> <input type="number" name="attr_2 mana" value=" "> / <input type="number" name="attr_2 mana_max" value=" "><br/>
+      <div>Recoveries</div> <input type="number" name="attr_rec" value=" "> / <input type="number" name="attr_rec_max" value=" ">
   </section>
 
   <section class="attack">
