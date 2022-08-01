@@ -9,10 +9,12 @@ main {
   height: 900px;
   grid-gap: 4px;
   grid-template-columns: 200px 1fr 1fr 1fr 1fr;
-  grid-template-rows: 90px 1fr 1fr 1fr 20px;
+  grid-template-rows: 90px 1fr 1fr 1fr 10px;
   grid-template-areas:"header   header  header  header  header  header"
                       "skill    skill   bars    bars    power   power"
                       "stats    stats   attack  attack  power   power"
+                      "ult      ult     attack  attack  power   power"
+                      "misc     misc    inv     inv     talent  talent"
                       "misc     misc    inv     inv     talent  talent"
                       "footer   footer  footer  footer  footer  footer";
 }
@@ -114,6 +116,11 @@ input[type="number"] {
 
 .common {
   grid-area: common;
+}
+
+.ult {
+    grid-area: ult;
+    background-color: #E3854D;
 }
 
 .power {
