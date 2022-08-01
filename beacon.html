@@ -80,7 +80,7 @@
     <fieldset class="repeating_powers">
         <input type="checkbox" class="sheet-toggle-show" >
         <button type="roll" name="roll_power" value="&{template:rolls} {{title=@{powername}}} {{subtitle=@{character_name} }} {{Type=@{powertype}}} {{Action=@{poweraction}}} {{Range=@{powerrange}}} {{Tags=@{powertags}}} {{Effects=@{powereffects}}}" > </button>
-        <input type="text" name="attr_powername" value="">
+        <input type="text" class=resizedTextbox name="attr_powername" value="">
         <div class="sheet-body">
         <label>Type<input type="text" name="attr_powertype" value=""></label>
         <label>Action<input type="text" name="attr_poweraction" value=""></label>
@@ -98,7 +98,7 @@
         <input type="checkbox" class="sheet-toggle-show" >
         <button type="roll" name="roll_support" value="&{template:rolls} {{title=@{supportname}}} {{subtitle=@{character_name}}} {{Type=@{supporttype}}} {{Action=@{supportaction}}} {{Range=@{supportrange}}} {{Tags=@{supporttags}}} {{Effects=@{supporteffects}}}"> </button>
         <input type="text" name="attr_supportname" value="">
-        <div class="sheet-body"
+        <div class="sheet-body">
         <label>Type<input type="text" name="attr_supporttype" value=""></label>
         <label>Tags<input type="text" name="attr_supporttags" value=""></label>
         <label>Effects</label>
@@ -111,7 +111,7 @@
    <fieldset class="repeating_talent">
         <input type="checkbox" class="sheet-toggle-show" >
         <button type="roll" name="roll_talent" value="&{template:rolls} {{title=@{talentname}}} {{subtitle=@{character_name}}} {{Effects=@{talenteffects}}}"> </button>
-        <input type="text" name="attr_talentname" value="">
+        <input type="text" class="resizedTextbox" name="attr_talentname" value="">
         <div class="sheet-body">
         <textarea name="attr_talenteffects"></textarea>
         </div>
