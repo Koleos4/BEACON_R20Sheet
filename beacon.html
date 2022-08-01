@@ -1,7 +1,6 @@
 <main>
   <section class="header f-center">
     <h1>BEACON RPG</h1>
-    <span>god we really need to change these colors</span>
   </section>
 
 <section class="skill">
@@ -42,7 +41,7 @@
 
   <section class="bars">
       <div>Armor</div> <input type="number" name="attr_armor" value="">
-      <div>Parry</div> <input type="number" name="attr_parry" value=" ">
+      <div>Focus</div> <input type="number" name="attr_focus" value=" ">
       <div>Temp HP</div> <input type="number" name="attr_temphp" value=" "><br/>
       <div>HP</div> <input type="number" name="attr_3 hp" value=" "> <span>/</span> <input type="number" name="attr_3 hp_max" value=" "><br/>
       <div>Stress</div> <input type="number" name="attr_1 stress cap" value=" "> / <input type="number" name="attr_1 stress cap_max" value=" "><br/>
@@ -77,7 +76,8 @@
         <label>Action<input type="text" name="attr_poweraction" value=""></label>
         <label>Range<input type="text" name="attr_powerrange" value=""></label>
         <label>Tags<input type="text" name="attr_powertags" value=""></label>
-        <label>Effects<input type="text" name="attr_powereffects" value=""></label>
+        <label>Effects
+        <textarea name="attr_powereffects"></textarea>
         </div>
     </fieldset>
   </section>
@@ -91,7 +91,8 @@
         <div class="sheet-body"
         <label>Type<input type="text" name="attr_supporttype" value=""></label>
         <label>Tags<input type="text" name="attr_supporttags" value=""></label>
-        <label>Effects<input type="text" name="attr_supporteffects" value=""></label>
+        <label>Effects</label>
+        <textarea name="attr_supporteffects"></textarea>
         </div>
   </section>
 
@@ -102,7 +103,7 @@
         <button type="roll" name="roll_talent" value="&{template:rolls} {{title=@{talentname}}} {{subtitle=@{character_name}}} {{Effects=@{talenteffects}}}"> </button>
         <input type="text" name="attr_talentname" value="">
         <div class="sheet-body">
-        <input type="text" name="attr_talenteffects" value="">
+        <textarea name="attr_talenteffects"></textarea>
         </div>
 </section>
 
@@ -110,15 +111,16 @@
     <h3>Ancestry and Job Traits</h3>
     <input type="checkbox" class="sheet-toggle-show" >
     <button type="roll" name="roll_anc" value="&{template:default} {{Trait=@{anctraitname}}} {{Effect=@{anctrait}}}" ></button>
-    <Label> Ancestry Trait <input name="attr_anctraitname", type="text"> </label>
+    <Label> Ancestry Trait <input type=text name="attr_anctraitname"></label>
     <div class="sheet-body">
-    <input name="attr_anctrait", type="text"> </div>
+    <textarea name="attr_anctrait"></textarea>
+    </div>
     <fieldset class="repeating_trait">
     <input type="checkbox" class="sheet-toggle-show" >
     <button type="roll" name="roll_trait" value="&{template:default} {{Trait=@{traitname}}} {{Effect=@{traiteffect}}}" ></button>
     <input name="attr_traitname", type="text"> 
     <div class="sheet-body">
-    <input name="attr_traiteffect", type="text"> </div>
+    <textarea name="attr_traiteffect"></textarea> </div>
     </fieldset>
     </section>
 
