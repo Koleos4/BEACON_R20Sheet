@@ -38,6 +38,16 @@
       <div>Scope</div><input name="attr_scope" type="number"><br/>
       <div>Speed</div><input name="attr_speed" type="number">
   </section>
+  
+  <section class="ult">
+    <input type="checkbox" class="sheet-toggle-show" >
+    <button type="roll" name="roll_ult" value="&{template:default} {{Limit Break=@{ultname}}} {{Effect=@{ulteffect}}}" ></button>
+    <Label> <b>Limit Break</b> <input type=text name="attr_ultname"></label>
+    <div class="sheet-body">
+    <label>Action<input type="text" name="attr_ultaction" value=""></label>
+    <textarea name="attr_ulteffect"></textarea>
+    </div>
+  </section>
 
   <section class="bars">
       <div>Armor</div> <input type="number" name="attr_armor" value="">
@@ -76,7 +86,7 @@
         <label>Action<input type="text" name="attr_poweraction" value=""></label>
         <label>Range<input type="text" name="attr_powerrange" value=""></label>
         <label>Tags<input type="text" name="attr_powertags" value=""></label>
-        <label>Effects
+        <label>Effects</label>
         <textarea name="attr_powereffects"></textarea>
         </div>
     </fieldset>
