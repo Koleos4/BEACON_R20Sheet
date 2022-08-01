@@ -102,6 +102,8 @@ input[type="number"] {
     display: none;
 }
 
+.charsheet .resizedTextbox {width:120px};
+
 
 /*------------- Section-specific CSS -------------*/
 
@@ -128,6 +130,8 @@ input[type="number"] {
   background-color: #80B8E0;
 }
 
+}
+
 .power .repcontainer[data-groupname="repeating_power"]{
   padding-bottom: 0.2em;
 }
@@ -136,9 +140,11 @@ input[type="number"] {
   margin: 4px 0px;
 }
 
+
 .talent {
   grid-area: talent;
 }
+
 
 .bars {
     grid-area: bars;
