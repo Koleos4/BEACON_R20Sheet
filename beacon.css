@@ -10,11 +10,11 @@ main {
   grid-gap: 4px;
   grid-template-columns: 200px 1fr 1fr 1fr 1fr;
   grid-template-rows: 90px 1fr 1fr 1fr 20px;
-  grid-template-areas:"header   header	header  header  header"
-                      "skill    skill	bars    bars    power"
-                      "stats    stats	attack  attack  power"
-                      "misc     misc	inv     inv     talent"
-                      "footer   footer	footer  footer  footer";
+  grid-template-areas:"header   header  header  header  header  header"
+                      "skill    skill   bars    bars    power   power"
+                      "stats    stats   attack  attack  power   power"
+                      "misc     misc    inv     inv     talent  talent"
+                      "footer   footer  footer  footer  footer  footer";
 }
 
 /*----------------- GENERAL CSS ------------------*/
@@ -88,9 +88,11 @@ input[type="number"] {
   margin: 2px 4px;
 }
 
-.charsheet textarea {
-  width: 95%;
-  height: 85%;
+
+.charsheet textarea{resize: none;
+    height: 60px;
+    width: 300px;
+    background-color: white;
 }
 
 .charsheet input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
@@ -98,11 +100,11 @@ input[type="number"] {
     display: none;
 }
 
+
 /*------------- Section-specific CSS -------------*/
 
 .header {
   grid-area: header;
-  background-color: olive;
   flex-direction: column;
 }
 
@@ -116,7 +118,7 @@ input[type="number"] {
 
 .power {
   grid-area: power;
-  background-color: #0070C0;
+  background-color: #80B8E0;
 }
 
 .power .repcontainer[data-groupname="repeating_power"]{
@@ -141,17 +143,17 @@ input[type="number"] {
 
 .attack {
   grid-area: attack;
-  background-color: green;
+  background-color: #808080;
 }
 
 .inv {
   grid-area: inv;
-  background-color: #984807;
+  background-color: #C1916A;
 }
 
 .misc {
   grid-area: misc;
-  background-color: #C22026;
+  background-color: #CE4D51;
 }
 
 footer {
@@ -209,6 +211,3 @@ footer {
 .sheet-rolltemplate-rolls .sheet-content :nth-child(4n) {
   background: #EEE;
 }
-
-section {background-image: url("https://scontent-iad3-1.xx.fbcdn.net/v/t1.6435-9/98028348_10157750515829262_738747985663361024_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=kMkodCHaF6UAX_iZXHb&_nc_ht=scontent-iad3-1.xx&oh=00_AT_xU5Qsxrf12BVojyu6OfyJHP8IHIBc1-vLBQm26Jom9w&oe=6302EB74");background-repeat:no-repeat;background-position: -100px -100px;}
-
