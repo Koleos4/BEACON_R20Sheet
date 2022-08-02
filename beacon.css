@@ -3,7 +3,24 @@
 /* A CSS Grid example using "grid-template-areas"
   https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas
 */
-main {
+
+.charsheet main.sheet-character,
+.charsheet main.sheet-npc {
+    display: none;
+}
+
+.charsheet .sheet-tabstoggle[value=character] ~ main.sheet-character,
+.charsheet .sheet-tabstoggle[value=npc] ~ main.sheet-npc{
+    display: grid;
+}
+
+.charsheet div.tab-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+
+main.sheet-character {
   display: grid;
   width: 1000px;
   height: 900px;
@@ -18,6 +35,7 @@ main {
                       "misc     misc    inv     inv     talent  talent"
                       "footer   footer  footer  footer  footer  footer";
 }
+
 
 /*----------------- GENERAL CSS ------------------*/
 
@@ -38,6 +56,12 @@ section.skill div div {width:70px; display:inline-block;}
 section.bars div {width:100px; display:inline-block;}
 section.bars div.f-row {text-align:center;}
 section.bars div div {width:100px; display:inline-block;}
+
+section.npc-stats div {width:100px; display:inline-block;}
+section.npc-stats div.f-row {text-align:center;}
+section.npc-stats div div {width:100px; display:inline-block;}
+
+
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -102,7 +126,13 @@ input[type="number"] {
     display: none;
 }
 
-.charsheet .resizedTextbox {width:120px};
+.charsheet input.sheet-toggle-npc:checked ~ div.pc {
+    all: display:none;
+}
+
+.charsheet input.sheet-toggle-npc:not(:checked) ~ section.npc {
+    all: display:none;
+}
 
 
 /*------------- Section-specific CSS -------------*/
@@ -130,8 +160,6 @@ input[type="number"] {
   background-color: #80B8E0;
 }
 
-}
-
 .power .repcontainer[data-groupname="repeating_power"]{
   padding-bottom: 0.2em;
 }
@@ -140,11 +168,9 @@ input[type="number"] {
   margin: 4px 0px;
 }
 
-
 .talent {
   grid-area: talent;
 }
-
 
 .bars {
     grid-area: bars;
@@ -172,6 +198,53 @@ input[type="number"] {
 footer {
   grid-area: footer;
   background-color: lightgray;
+}
+
+/* NPC SHEET *\
+\*           */
+main.sheet-npc {
+    display: grid;
+    width: 1000px;
+    height:900px;
+    grid-gap: 4px;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+    grid-template-rows: 90px 1fr 1fr 1fr 20px;
+    grid-template-areas: "header    header      header      header  header"
+                         "npc-base  npc-base    npc-stats   npc-bar npc-actions"
+                         "npc-trts  npc-trts    npc-atk     npc-atk npc-actions"
+                         "npc-trts  npc-trts    npc-inv     npc-inv npc-actions";
+}
+
+.npc-base {
+    grid-area: npc-base;
+}
+
+.npc-stats {
+    grid-area: npc-stats;
+}
+
+.npc-atk {
+    grid-area: npc-atk;
+    background-color: #808080;
+}
+
+.npc-trts {
+    grid-area: npc-trts;
+    background-color: #CE4D51;
+}
+
+.npc-actions {
+    grid-area: npc-actions;
+    background-color: #80B8E0;
+}
+
+.npc-inv {
+    grid-area: npc-inv;
+    background-color: #C1916A;
+}
+
+.npc-bar {
+    grid-area: npc-bar
 }
 
 /*------------------------------------*\
