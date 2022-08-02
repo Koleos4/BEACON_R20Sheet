@@ -72,13 +72,13 @@
     <h3>Attacks</h3>
     <fieldset class="repeating_attacks">
         <input type="checkbox" class="sheet-toggle-show" >
-        <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name} }} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]]}} {{Effects=@{attackeffects}}}" > </button>
+        <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name} }} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]] @{damagetype}}} {{Effects=@{attackeffects}}}" > </button>
         <input type="text" name="attr_attackname" value="">
         <div class="sheet-body">
         <label>Type<input type="text" name="attr_attacktype" value=""></label>
         <label>Range<input type="text" name="attr_attackrange" value=""></label>
         <label>Tags<input type="text" name="attr_attacktags" value=""></label>
-        <label>Damage<input type="text" name="attr_attackdamage" value=""></label>
+        <span><b>Damage</b><input type="text" class=smallerTextbox name="attr_attackdamage" value=""></span><span><b>Type</b><input type="text" name="attr_damagetype" class=resizedTextbox value=""></span></br>
         <label>Effects<input type="text" name="attr_attackeffects" value=""></label>
         </div>
     </fieldset>
@@ -204,14 +204,14 @@
     <h3>Attacks</h3>
     <fieldset class="repeating_attacks">
         <input type="checkbox" class="sheet-toggle-show" >
-        <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name} }} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{npctohit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]]}} {{Effects=@{attackeffects}}}" > </button>
+        <button type="roll" name="npc_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name} }} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{npctohit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]]} {{Effects=@{attackeffects}}}" > </button>
         <input type="text" name="attr_attackname" value="">
         <div class="sheet-body">
         <label>Type<input type="text" name="attr_attacktype" value=""></label>
         <label>Range<input type="text" name="attr_attackrange" value=""></label>
         <label>Tags<input type="text" name="attr_attacktags" value=""></label>
         <label>To Hit<input type="number" name="attr_npctohit" value=""></label>
-        <label>Damage<input type="text" name="attr_attackdamage" value=""></label>
+        <span><b>Damage</b><input type="text" class=smallerTextbox name="attr_attackdamage" value=""></span><span><b>Type</b><input type="text" name="attr_damagetype" class=resizedTextbox value=""></span></br>
         <label>Effects<input type="text" name="attr_attackeffects" value=""></label>
         </div>
     </fieldset>
@@ -221,7 +221,7 @@
     <h3>Skills & Spells</h3>
     <fieldset class="repeating_powers">
         <input type="checkbox" class="sheet-toggle-show" >
-        <button type="roll" name="roll_power" value="&{template:rolls} {{title=@{powername}}} {{subtitle=@{character_name} }} {{Type=@{powertype}}} {{Action=@{poweraction}}} {{Range=@{powerrange}}} {{Tags=@{powertags}}} {{Effects=@{powereffects}}}" > </button>
+        <button type="roll" name="npc_power" value="&{template:rolls} {{title=@{powername}}} {{subtitle=@{character_name} }} {{Type=@{powertype}}} {{Action=@{poweraction}}} {{Range=@{powerrange}}} {{Tags=@{powertags}}} {{Effects=@{powereffects}}}" > </button>
         <input type="text" class=resizedTextbox name="attr_powername" value="">
         <div class="sheet-body">
         <label>Type<input type="text" name="attr_powertype" value=""></label>
@@ -238,8 +238,8 @@
     <h3>Traits</h3>
     <fieldset class="repeating_trait">
     <input type="checkbox" class="sheet-toggle-show" >
-    <button type="roll" name="roll_trait" value="&{template:default} {{Trait=@{traitname}}} {{Effect=@{traiteffect}}}" ></button>
-    <input name="attr_traitname", type="text"> 
+    <button type="roll" name="npc_trait" value="&{template:default} {{Trait=@{traitname}}} {{Effect=@{traiteffect}}}" ></button>
+    <input name="attr_traitname", type="text" class=resizedTextbox> 
     <div class="sheet-body">
     <textarea name="attr_traiteffect"></textarea> </div>
     </fieldset>
@@ -249,7 +249,7 @@
     <h3>Support Items</h3>
     <fieldset class="repeating_support">
         <input type="checkbox" class="sheet-toggle-show" >
-        <button type="roll" name="roll_support" value="&{template:rolls} {{title=@{supportname}}} {{subtitle=@{character_name}}} {{Type=@{supporttype}}} {{Action=@{supportaction}}} {{Range=@{supportrange}}} {{Tags=@{supporttags}}} {{Effects=@{supporteffects}}}"> </button>
+        <button type="roll" name="npc_support" value="&{template:rolls} {{title=@{supportname}}} {{subtitle=@{character_name}}} {{Type=@{supporttype}}} {{Action=@{supportaction}}} {{Range=@{supportrange}}} {{Tags=@{supporttags}}} {{Effects=@{supporteffects}}}"> </button>
         <input type="text" name="attr_supportname" value="">
         <div class="sheet-body">
         <label>Type<input type="text" name="attr_supporttype" value=""></label>
