@@ -15,6 +15,8 @@ https://docs.google.com/spreadsheets/d/1e7AkyOMZAuHrTPj60O0XYzVGLYjaDQBcjZDNHJ_k
 
 Is there a way to format the roll template so that if an input is blank, it doesn't show the line on the output?
 
+Color-code outputs based on type (skill, spell, weapon, trait, talent, support)
+
 Better fonts
 
 Better header
