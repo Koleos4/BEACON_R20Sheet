@@ -28,6 +28,7 @@ Tim fix NPC roll issue
 
 <i><b>Mid-term goals/wants:</b></i>
 
+Better format for Talents - that box is going to get huge as people level up
+
 Alternate spellcaster focused sheet that swaps position of Attacks box and Powers box?
 
-Better format for Talents - that box is going to get huge as people level up
