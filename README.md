@@ -26,10 +26,6 @@ There's a few places (mostly in the Attacks box, but I think at least one other 
 
 Reducing wasted space would be nice, every time I (Tim) try to play with e.g. column width the whole sheet kind of borks
 
-
-Tim fix NPC roll issue
-
-
 <i><b>Mid-term goals/wants:</b></i>
 
 Better format for Talents - that box is going to get huge as people level up
