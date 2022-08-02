@@ -11,7 +11,7 @@ The Google Sheet for BEACON, which format we're loosely adapting here
 https://docs.google.com/spreadsheets/d/1e7AkyOMZAuHrTPj60O0XYzVGLYjaDQBcjZDNHJ_kzt8/edit#gid=899925134
 
 
-Near-term goals/wants:
+<b>Near-term goals/wants:</b>
 
 Better fonts
 
@@ -26,7 +26,7 @@ Reducing wasted space would be nice, every time I (Tim) try to play with e.g. co
 Tim fix NPC roll issue
 
 
-Mid-term goals/wants:
+<b>Mid-term goals/wants:</b>
 
 Alternate spellcaster focused sheet that swaps position of Attacks box and Powers box?
 
