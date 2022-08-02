@@ -19,6 +19,13 @@
   gap: 10px;
 }
 
+.charsheet .resizedTextbox{width:120px}
+
+.charsheet textArea{resize: none;
+    height: 60px;
+    width: 300px;
+    background-color: white;
+}
 
 main.sheet-character {
   display: grid;
@@ -31,6 +38,7 @@ main.sheet-character {
                       "skill    skill   bars    bars    power   power"
                       "stats    stats   attack  attack  power   power"
                       "ult      ult     attack  attack  power   power"
+                      "misc     misc    inv     inv     talent  talent"
                       "misc     misc    inv     inv     talent  talent"
                       "misc     misc    inv     inv     talent  talent"
                       "footer   footer  footer  footer  footer  footer";
@@ -90,6 +98,7 @@ input[type="number"] {
   justify-content: center;
 }
 
+.smallerTextbox{width:50px};
 
 /*----------------- Text & Input styling -----------------*/
 
@@ -114,26 +123,10 @@ input[type="number"] {
   margin: 2px 4px;
 }
 
-
-.charsheet textarea{resize: none;
-    height: 60px;
-    width: 300px;
-    background-color: white;
-}
-
 .charsheet input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
 .charsheet input.sheet-toggle-hide:checked ~ div.sheet-body {
     display: none;
 }
-
-.charsheet input.sheet-toggle-npc:checked ~ div.pc {
-    all: display:none;
-}
-
-.charsheet input.sheet-toggle-npc:not(:checked) ~ section.npc {
-    all: display:none;
-}
-
 
 /*------------- Section-specific CSS -------------*/
 
@@ -207,7 +200,7 @@ main.sheet-npc {
     width: 1000px;
     height:900px;
     grid-gap: 4px;
-    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 150px 1fr 1fr 1fr 1fr;
     grid-template-rows: 90px 1fr 1fr 1fr 20px;
     grid-template-areas: "header    header      header      header  header"
                          "npc-base  npc-base    npc-stats   npc-bar npc-actions"
