@@ -13,6 +13,8 @@ https://docs.google.com/spreadsheets/d/1e7AkyOMZAuHrTPj60O0XYzVGLYjaDQBcjZDNHJ_k
 
 <b><i>Near-term goals/wants:</b></i>
 
+Is there a way to format the roll template so that if an input is blank, it doesn't show the line on the output?
+
 Better fonts
 
 Better header
