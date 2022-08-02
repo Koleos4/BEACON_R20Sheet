@@ -12,10 +12,22 @@ https://docs.google.com/spreadsheets/d/1e7AkyOMZAuHrTPj60O0XYzVGLYjaDQBcjZDNHJ_k
 
 
 Near-term goals/wants:
+
 Better fonts
+
 Better header
+
 There's a few places (mostly in the Attacks box, but I think at least one other place) with a mix of Label and Span - the mix
   is working in terms of formatting line breaks and stuff, but it would be good if the text was the same size/bold in places where they intermix
+
 Reducing wasted space would be nice, every time I (Tim) try to play with e.g. column width the whole sheet kind of borks
 
+
 Tim fix NPC roll issue
+
+
+Mid-term goals/wants:
+
+Alternate spellcaster focused sheet that swaps position of Attacks box and Powers box?
+
+Better format for Talents - that box is going to get huge as people level up
