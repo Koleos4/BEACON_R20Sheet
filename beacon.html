@@ -1,4 +1,13 @@
-<main>
+<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="character">
+
+<div class="tab-buttons middle center">
+  <button type="action" name="act_character">Character</button>
+  <button type="action" name="act_npc">NPC</button>
+</div>
+
+
+<main class="sheet-character">
+
   <section class="header f-center">
     <h1>BEACON RPG</h1>
   </section>
@@ -140,6 +149,119 @@
   </footer>
 </main>
 
+<!-- NPC Sheet -->
+
+
+<main class="sheet-npc">
+
+  <section class="header f-center">
+    <h1>BEACON RPG</h1>
+  </section>
+
+<section class="npc-base">
+    <div>Name:</div> <input name="attr_character_name" type="text">
+    <div><span>Tier:</span> <input name="attr_tier" type="number"><span>Initiative</span><input name="attr_initiative" type="number"><span>Size</span><input name="attr_size" type="number"></div>
+    <div class="f-row nowrap">
+      <div>Bulk</div>
+      <input type="number" name="attr_blk" value=" ">
+      <button type="roll" name="roll_blk" value="&{template:rolls} {{title=Bulk}} {{subtitle=@{character_name} }} {{roll= [[1d20+@{blk} +?{Accuracy/Difficulty|0}d6k1]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <div>Agility</div>
+      <input type="number" name="attr_agi" value=" ">
+      <button type="roll" name="roll_agi" value="&{template:rolls} {{title=Agility}} {{subtitle=@{character_name} }} {{roll= [[d20+@{agi}[agi] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <div>Mind</div>
+      <input type="number" name="attr_mnd" value="3">
+      <button type="roll" name="roll_mnd" value="&{template:rolls} {{title=Mind}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mnd}[mnd] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <div>Magic</div>
+      <input type="number" name="attr_mgk" value="3">
+      <button type="roll" name="roll_mgk" value="&{template:rolls} {{title=Magic}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mgk}[mgk] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
+    </div>
+  </section>
+
+  <section class="npc-stats common">
+      <div>Dodge</div><input name="attr_dodge" type="number">
+      <div>A-Def</div><input name="attr_a-def" type="number"><br/>
+      <div>Save Target</div><input name="attr_save" type="number">
+      <div>Scope</div><input name="attr_scope" type="number"><br/>
+      <div>Speed</div><input name="attr_speed" type="number">
+  </section>
+
+  <section class="npc-bar">
+      <div>Armor</div> <input type="number" name="attr_armor" value="">
+      <div>Temp HP</div> <input type="number" name="attr_temphp" value=" "><br/>
+      <div>HP</div> <input type="number" name="attr_3 hp" value=" "> <span>/</span> <input type="number" name="attr_3 hp_max" value=" "><br/>
+      <div>Stress</div> <input type="number" name="attr_1 stress cap" value=" "> / <input type="number" name="attr_1 stress cap_max" value=" "><br/>
+      <div>Mana</div> <input type="number" name="attr_2 mana" value=" "> / <input type="number" name="attr_2 mana_max" value=" "><br/>
+  </section>
+
+
+  <section class="npc-atk">
+    <h3>Attacks</h3>
+    <fieldset class="repeating_attacks">
+        <input type="checkbox" class="sheet-toggle-show" >
+        <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name} }} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{npctohit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]]}} {{Effects=@{attackeffects}}}" > </button>
+        <input type="text" name="attr_attackname" value="">
+        <div class="sheet-body">
+        <label>Type<input type="text" name="attr_attacktype" value=""></label>
+        <label>Range<input type="text" name="attr_attackrange" value=""></label>
+        <label>Tags<input type="text" name="attr_attacktags" value=""></label>
+        <label>To Hit<input type="number" name="attr_npctohit" value=""></label>
+        <label>Damage<input type="text" name="attr_attackdamage" value=""></label>
+        <label>Effects<input type="text" name="attr_attackeffects" value=""></label>
+        </div>
+    </fieldset>
+  </section>
+  
+  <section class="npc-actions">
+    <h3>Skills & Spells</h3>
+    <fieldset class="repeating_powers">
+        <input type="checkbox" class="sheet-toggle-show" >
+        <button type="roll" name="roll_power" value="&{template:rolls} {{title=@{powername}}} {{subtitle=@{character_name} }} {{Type=@{powertype}}} {{Action=@{poweraction}}} {{Range=@{powerrange}}} {{Tags=@{powertags}}} {{Effects=@{powereffects}}}" > </button>
+        <input type="text" class=resizedTextbox name="attr_powername" value="">
+        <div class="sheet-body">
+        <label>Type<input type="text" name="attr_powertype" value=""></label>
+        <label>Action<input type="text" name="attr_poweraction" value=""></label>
+        <label>Range<input type="text" name="attr_powerrange" value=""></label>
+        <label>Tags<input type="text" name="attr_powertags" value=""></label>
+        <label>Effects</label>
+        <textarea name="attr_powereffects"></textarea>
+        </div>
+    </fieldset>
+  </section>
+  
+  <section class="npc-trts">
+    <h3>Traits</h3>
+    <fieldset class="repeating_trait">
+    <input type="checkbox" class="sheet-toggle-show" >
+    <button type="roll" name="roll_trait" value="&{template:default} {{Trait=@{traitname}}} {{Effect=@{traiteffect}}}" ></button>
+    <input name="attr_traitname", type="text"> 
+    <div class="sheet-body">
+    <textarea name="attr_traiteffect"></textarea> </div>
+    </fieldset>
+  </section>
+  
+  <section class="npc-inv">
+    <h3>Support Items</h3>
+    <fieldset class="repeating_support">
+        <input type="checkbox" class="sheet-toggle-show" >
+        <button type="roll" name="roll_support" value="&{template:rolls} {{title=@{supportname}}} {{subtitle=@{character_name}}} {{Type=@{supporttype}}} {{Action=@{supportaction}}} {{Range=@{supportrange}}} {{Tags=@{supporttags}}} {{Effects=@{supporteffects}}}"> </button>
+        <input type="text" name="attr_supportname" value="">
+        <div class="sheet-body">
+        <label>Type<input type="text" name="attr_supporttype" value=""></label>
+        <label>Tags<input type="text" name="attr_supporttags" value=""></label>
+        <label>Effects</label>
+        <textarea name="attr_supporteffects"></textarea>
+        </div>
+  </section>
+
+  
+</main>
+
 <!-- roll template -->
 
 <rolltemplate class="sheet-rolltemplate-rolls">
@@ -158,6 +280,21 @@
     </div>
   </div>
 </rolltemplate>
+
+<!-- Script -->
+
+<script type="text/worker">
+
+const buttonlist = ["character","npc"];
+buttonlist.forEach(button => {
+    on(`clicked:${button}`, function() {
+        setAttrs({
+            sheetTab: button
+        });
+    });
+});
+
+</script>
 
 <!-- hidden lists -->
 
