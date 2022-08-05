@@ -19,7 +19,7 @@
   gap: 10px;
 }
 
-.charsheet .resizedTextbox{width:120px}
+.charsheet .resizedTextbox{width:120px;}
 
 .charsheet textArea{resize: none;
     height: 60px;
@@ -33,7 +33,7 @@ main.sheet-character {
   height: 900px;
   grid-gap: 4px;
   grid-template-columns: 200px 1fr 1fr 1fr 1fr;
-  grid-template-rows: 90px 1fr 1fr 1fr 10px;
+  grid-template-rows: 90px 1fr 1fr 1fr 15px;
   grid-template-areas:"header   header  header  header  header  header"
                       "skill    skill   bars    bars    power   power"
                       "stats    stats   attack  attack  power   power"
@@ -98,7 +98,12 @@ input[type="number"] {
   justify-content: center;
 }
 
-.smallerTextbox{width:50px};
+.ancestryBox{width:80px;
+}
+.jobBox{width:100px;
+}
+.smallerTextbox{width:50px;
+}
 
 /*----------------- Text & Input styling -----------------*/
 
@@ -200,12 +205,12 @@ main.sheet-npc {
     width: 1000px;
     height:900px;
     grid-gap: 4px;
-    grid-template-columns: 150px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
     grid-template-rows: 90px 1fr 1fr 1fr 20px;
-    grid-template-areas: "header    header      header      header  header"
-                         "npc-base  npc-base    npc-stats   npc-bar npc-actions"
-                         "npc-trts  npc-trts    npc-atk     npc-atk npc-actions"
-                         "npc-trts  npc-trts    npc-inv     npc-inv npc-actions";
+    grid-template-areas: "header    header      header  header"
+                         "npc-base  npc-stats   npc-bar npc-actions"
+                         "npc-trts  npc-atk     npc-atk npc-actions"
+                         "npc-trts  npc-inv     npc-inv npc-actions";
 }
 
 .npc-base {
@@ -239,6 +244,13 @@ main.sheet-npc {
 .npc-bar {
     grid-area: npc-bar
 }
+
+textarea.NPCTextarea{resize: none;
+    height: 60px;
+    width:175px;
+    background-color: white;
+}
+
 
 /*------------------------------------*\
   #ROLL TEMPLATES
