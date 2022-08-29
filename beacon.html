@@ -2,6 +2,7 @@
 
 <div class="tab-buttons middle center">
   <button type="action" name="act_character">Character</button>
+  <button type="action" name="act_gen">General Rules</button>
   <button type="action" name="act_npc">NPC</button>
 </div>
 
@@ -264,6 +265,132 @@
   
 </main>
 
+<!-- General Rules Tab -->
+
+<main class="sheet-gen">
+
+  <section class="header f-center">
+    <h1>BEACON RPG</h1>
+  </section>
+
+<section class="rerolltable">
+    <h3>Reroll Table</h3>
+    <p>When you make an attack roll, ability check, or saving throw, you can use the reroll table to try again. Each option can only be chosen 1/round.
+    You can use the reroll table after finding out if the roll would succeed, but before it actually occurs. All ACC or DIF are also rerolled.</p>
+    <p><button type="roll" name="roll_rerollstress" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=[[1d3]] Stress}}"></button>A: Take 1d3 Stress</p>
+    <p><button type="roll" name="roll_rerollmark" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=Become MARKED. This doesn't count as a condition you've given yourself.}}"></button>B: Become MARKED. You can't use this option if you are MARKED. This doesn't count as a condition you've given yourself.</p>
+    <p><button type="roll" name="roll_rerollopp" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=If you are adjacent to an enemy or within Reach of an enemy's weapon, they can choose to A) Opportunity Attack you or B) deal [[3]] Physical to you as a reaction.}}"></button>C: If you are adjacent to an enemy or within one of their weapon's REACH, they can choose to a) Opportunity Attack you or b) deal 3 Physical to you as a Reaction.</p>
+</section>
+
+<section class="surge">
+    <h3>Surge</h3>
+    <p>You can surge 1/round to take a 2nd turn. A surge counts as a turn for all effects that start or end at the character's next turn.
+    You gain your standard movement, standard action, and quick action as normal.</p>
+</section>
+
+<section class="reactions">
+    <h3>Reactions</h3>
+    <div>Focus<input type="number" name="attr_focus" value=" "></div>
+    <label><button type="roll" name="roll_counter" value="&{template:rolls} {{title=Counterattack}} {{subtitle=@{character_name}}} {{Action=Reaction, 1/round}} {{Tags=Focus 1}} {{Trigger=You are hit by an attack from a character within reach of one of your weapons or spells.}} {{Effect=You can VOLLEY/CAST/FIGHT with one of those weapons or spells against that character.}}"></button> Counterattack
+    </label>
+    <p><b>Focus 1, 1/Round</b></p>
+    <p>Trigger: You are hit by an attack from a character within one of your weapon or spell’s Reach.</p>
+    <label><button type="roll" name="roll_interpose" value="&{template:rolls} {{title=Interpose}} {{subtitle=@{character_name}}} {{Action=Reaction}} {{Tags = Focus 1}} {{Trigger=An ally within Range 3 is targeted by an attack.}} {{Effect=You can move up to 2 spaces, ignoring reactions. If you end this movement next to the targeted ally, you can choose to become the target instead. An attack roll can only be interposed once.}}"></button> Interpose
+    </label>
+    <p><b>Focus 1</b></p>
+    <p>Trigger: An ally within Range 3 is targeted by an attack.</p>
+    <label><button type="roll" name="roll_oppatk" value="&{template:rolls} {{title=Opportunity Attack}} {{subtitle=@{character_name}}} {{Action=Reaction, 1/round}} {{Trigger=A hostile character begins a movement or standard movement within reach of one of your weapons or techniques.}} {{Effect=You can VOLLEY/CAST/FIGHT against them with one of those weapons or techniques.}}"></button> Opportunity Attack
+    </label>
+    <p><b>1/Round</b></p>
+    <p>Trigger: A hostile character begins a movement or standard movement within one of your weapon or technique's Reach.</p>
+</section>
+
+<section class="gen_misc">
+    <h3>Other Actions</h3>
+    <label><button type="roll" name="roll_defend" value="&{template:rolls} {{title=Defend}} {{subtitle=@{character_name}}} {{Action=(1) BOLSTER}} {{=Gain [[1d3+@{armor}]] Focus. Until the start of your next turn, attacks against you gain +1 DIF.}}"></button>Defend (Phase 1)</label>
+    <label><button type="roll" name="roll_recover" value="&{template:rolls} {{title=Recover}} {{subtitle=@{character_name}}} {{Action=(1) BOLSTER}} {{=Choose one: 
+    • Spend a Recovery to regain all your HP
+    • Clear all your Stress
+    • Regain all your Mana
+    
+    Then choose one: 
+    • Reload all reloading weapons/abilities
+    • Clear all Discord on yourself
+    • Clear a condition or effect on you that wasn't caused by yourself
+    • Clear a condition or effect on an adjacent ally that awsn't caused by them}}"></button>Recover (Phase 1)</label>
+    <label><button type="roll" name="roll_mark" value="&{template:rolls} {{title=Mark}} {{subtitle=@{character_name}}} {{Action=(3) SKIRMISH}} {{Scope=@{scope}}} {{=A character within your Scope and Line of Sight gains the MARKED condition.}}"></button>Mark (Phase 3)</label>
+    <label><button type="roll" name="roll_minorcast" value="&{template:rolls} {{title=Minor Cast}} {{subtitle=@{character_name}}} {{Action=(3) CAST}} {{Tags=Mana 1}} {{Scope=@{scope}}} {{Effect=You deal 2 Stress to a target within Scope.}}"></button>Minor Cast (Phase 3)</label>
+    <label><button type="roll" name="roll_hide" value="&{template:rolls} {{title=Hide}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You gain the HIDDEN condition. To hide, you can't be ENGAGED and either must be A) outside of enemy Line of Sight, B) benefiting from cover against enemies that have Line of Sight to you, or C) INVISIBLE.}}"></button>Hide (Phase 4)</label>
+    <p>Can't Hide while ENGAGED and must be A) outside of enemy LoS, B) in cover from enemies with LoS to you, or C) INVISIBLE.</p>
+    <label><button type="roll" name="roll_rush" value="&{template:rolls} {{title=Rush}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You can either A) Move up to your speed or B) not provoke reactions from movement this turn.}}"></button>Rush (Phase 4)</label>
+    <p>Either A) Move up to your speed or B) don't provoke reactions from movement this turn.</p>
+    <label><button type="roll" name="roll_improvised" value="&{template:rolls} {{title=Improvised Attack}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[1d3]] Physical}}"></button>Improvised Attack (Phase 5)</label>
+    <label><button type="roll" name="roll_grapple" value="&{template:rolls} {{title=Grapple}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, both characters are GRAPPLED.}}"></button>Grapple (Phase 5)</label>
+    <label><button type="roll" name="roll_grapple_ref" value="&{template:rolls} {{title=GRAPPLED Reference}} {{=While grappled, both characters count as ENGAGED and can't take Reactions. The larger character can move normally. The smaller character is IMMOBILIZED, but is drug along by the larger character. If you are the same size as the target, you count as the larger one during the turn you grapple them. Characters that are the same size can make a contested BLK check during their turn to see if they count as the larger one that turn.
+    
+    GRAPPLED ends if the characters are no longer adjacent to each other, the initiator ends it as a free action, or the grapple target succeeds on an opposed BLK check as a Quick Action.}}"></button>GRAPPLED Ref</label>
+    <label><button type="roll" name="roll_shove" value="&{template:rolls} {{title=Shove}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, you can either Push them 1 space, or knock them PRONE}}"></button>Shove (Phase 5)</label>
+</section>
+
+<section class="wounds">
+    <h3><button type="roll" name=roll_wound value="&{template:rolls} {{title=Wound/Overstress Roll}} {{subtitle=@{character_name}}} {{=[[1d6]]}}"></button>Wounds and Overstress</h3>
+    <br>
+    <table>
+        <tr>
+            <th>  1 Wound   </th>
+            <th>  2 Wounds  </th>
+            <th>  3 Wounds  </th>
+            <th>Outcome</th>
+        </tr>
+        <tr>
+            <td>4-6</td>
+            <td>5-6</td>
+            <td>6</td>
+            <td>DAZED: You are DAZED until the end of your next turn.</td>
+        </tr>
+        <tr>
+            <td>1-3</td>
+            <td>2-4</td>
+            <td>3-5</td>
+            <td>BROKEN: Roll 1d6. 1-3, destroy a weapon. 4-6, destroy a support item.</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>1</td>
+            <td>1-2</td>
+            <td>STUNNED: You are STUNNED until the end of your next turn.</td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <th> 1 Overstress </th>
+            <th> 2 Overstress </th>
+            <th> 3 Overstress </th>
+            <th>Outcome</th>
+        </tr>
+        <tr>
+            <td>4-6</td>
+            <td>5-6</td>
+            <td>6</td>
+            <td>DAZED: You are DAZED until the end of your next turn.</td>
+        </tr>
+        <tr>
+            <td>1-3</td>
+            <td>2-4</td>
+            <td>3-5</td>
+            <td>UNFOCUSED: Roll 1d6. 1-3, destroy a technique. 4-6, reduce current and max mana by 1.</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>1</td>
+            <td>1-2</td>
+            <td>EXPOSED: You are VULNERABLE and WEAKENED until the end of your next turn.</td>
+        </tr>
+    </table>
+
+</section>
+
 <!-- roll template -->
 
 <rolltemplate class="sheet-rolltemplate-rolls">
@@ -287,7 +414,7 @@
 
 <script type="text/worker">
 
-const buttonlist = ["character","npc"];
+const buttonlist = ["character","npc","gen"];
 buttonlist.forEach(button => {
     on(`clicked:${button}`, function() {
         setAttrs({
