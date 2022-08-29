@@ -10,7 +10,8 @@
 }
 
 .charsheet .sheet-tabstoggle[value=character] ~ main.sheet-character,
-.charsheet .sheet-tabstoggle[value=npc] ~ main.sheet-npc{
+.charsheet .sheet-tabstoggle[value=npc] ~ main.sheet-npc,
+.charsheet .sheet-tabstoggle[value=gen] ~main.sheet-gen {
     display: grid;
 }
 
@@ -25,6 +26,19 @@
     height: 60px;
     width: 300px;
     background-color: white;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+}
+
+th {
+  white-space: nowrap;
 }
 
 main.sheet-character {
@@ -44,6 +58,11 @@ main.sheet-character {
                       "footer   footer  footer  footer  footer  footer";
 }
 
+
+.charsheet{
+	background-color:white;
+	color:black;
+}
 
 /*----------------- GENERAL CSS ------------------*/
 
@@ -252,6 +271,40 @@ textarea.NPCTextarea{resize: none;
 }
 
 
+/* NPC SHEET *\
+\*           */
+main.sheet-gen {
+    display: grid;
+    width: 1000px;
+    height:900px;
+    grid-gap: 4px;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr 1fr 20px;
+    grid-template-areas: "header    header      header      header  header"
+                         "gen-misc  reactions   reactions   surge   surge"
+                         "gen-misc  rerolltable rerolltable wounds  wounds"
+}
+
+.rerolltable {
+    grid-area: rerolltable
+}
+
+.surge {
+    grid-area: surge
+}
+
+.reactions {
+    grid-area: reactions
+}
+
+.gen_misc {
+    grid-area: gen-misc
+}
+
+.wounds {
+    grid-area: wounds
+}
+
 /*------------------------------------*\
   #ROLL TEMPLATES
 \*------------------------------------*/
@@ -289,6 +342,7 @@ textarea.NPCTextarea{resize: none;
   background: #FFF;
   grid-template-columns: auto auto;
   line-height: 1.4em;
+  color: #000;
 }
 .sheet-rolltemplate-rolls .sheet-content > div {
   padding: 5px;
@@ -297,8 +351,13 @@ textarea.NPCTextarea{resize: none;
   font-weight: bold;
   padding-right: 10px;
   text-align: right;
+  color: #000000;
 }
 .sheet-rolltemplate-rolls .sheet-content :nth-child(4n+3),
 .sheet-rolltemplate-rolls .sheet-content :nth-child(4n) {
   background: #EEE;
+}
+
+.sheet-rolltemplate-darkmode .inlinerollresult{
+    color: #FFFFFF;
 }
