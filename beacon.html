@@ -203,6 +203,7 @@
         <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name}}} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{npctohit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]] @{damagetype}}} {{Effect=@{attackeffects}}}" > </button>
         <input type="text" class=text160 name="attr_attackname" value=""><span>Range<input type="text" class=text105 name="attr_attackrange" value=""></span><br>
         <div class="sheet-body">
+        <span>Type<input type="text" name="attr_attacktype" value=""></span><br>
         <span>To Hit<input type="text" name="attr_npctohit" class=smallerTextbox value=""></span><span>Damage<input type="text" class=smallerTextbox name="attr_attackdamage" value=""></span><span>Type<input type="text" name="attr_damagetype" class=resizedTextbox value=""></span><br>
         <span>Tags<input type="text" name="attr_attacktags" value=""></span>Effects? <input type="checkbox" class="sheet-toggle-show"><br>
         <div class="sheet-body">
