@@ -20,11 +20,24 @@
   gap: 10px;
 }
 
+.charsheet .text160{width:160px;}
 .charsheet .resizedTextbox{width:120px;}
+.charsheet .text80{width:80px;}
+.charsheet .text60{width:60px;}
+.charsheet .jobBox{width:100px;}
+.charsheet .ancestryBox{width:100px;}
+.charsheet .text105{width:105px;}
+.charsheet .text40{width:40px;}
 
-.charsheet textArea{resize: none;
+.charsheet textArea{
     height: 60px;
-    width: 300px;
+    width: 350px;
+    background-color: white;
+}
+
+.charsheet textArea.textAtks{
+    height: 40px;
+    width: 350px;
     background-color: white;
 }
 
@@ -91,6 +104,7 @@ section.npc-stats div div {width:100px; display:inline-block;}
 
 input[type="number"] {
     -moz-appearance: textfield;
+    text-align:center;
 }
 /*loren*/
 
@@ -146,6 +160,9 @@ input[type="number"] {
 .charsheet input[type="text"], input[type="number"]{
   margin: 2px 4px;
 }
+
+.charsheet input[type="number"]{
+    width:30px !important;}
 
 .charsheet input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
 .charsheet input.sheet-toggle-hide:checked ~ div.sheet-body {
@@ -264,12 +281,6 @@ main.sheet-npc {
     grid-area: npc-bar
 }
 
-textarea.NPCTextarea{resize: none;
-    height: 60px;
-    width:175px;
-    background-color: white;
-}
-
 
 /* NPC SHEET *\
 \*           */
@@ -282,7 +293,7 @@ main.sheet-gen {
     grid-template-rows: 100px 1fr 1fr 1fr 20px;
     grid-template-areas: "header    header      header      header  header"
                          "gen-misc  reactions   reactions   surge   surge"
-                         "gen-misc  rerolltable rerolltable wounds  wounds"
+                         "phase     rerolltable rerolltable wounds  wounds"
 }
 
 .rerolltable {
@@ -303,6 +314,10 @@ main.sheet-gen {
 
 .wounds {
     grid-area: wounds
+}
+
+.phase {
+    grid-area: phase
 }
 
 /*------------------------------------*\
