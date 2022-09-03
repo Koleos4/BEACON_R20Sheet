@@ -14,9 +14,8 @@
   </section>
 
 <section class="skill">
-    <div>Name:</div><input name="attr_character_name" type="text">
-    <div>Job:</div><input name="attr_job" type="text" list="jobs" class=jobBox>
-    <div>Ancestry:</div><input name="attr_ancestry" type="text" list="ancestries" class=ancestryBox><br>
+    <span>Name <input name="attr_character_name" type="text"></span><br>
+    <span>Job <input name="attr_job" type="text" list="jobs" class=jobBox> Ancestry <input name="attr_ancestry" type="text" list="ancestries" class=ancestryBox></span><br>
     <div class="f-row nowrap">
       <div>Bulk</div>
       <input type="number" name="attr_blk" value=" ">
@@ -54,7 +53,6 @@
     <button type="roll" name="roll_ult" value="&{template:rolls} {{title=<b>@{ultname}</b>}} {{subtitle=@{character_name}}} {{Effect=@{ulteffect}}}" ></button>
     <Label> <b>Limit Break</b> <input type=text name="attr_ultname"></label>
     <div class="sheet-body">
-    <label>Action<input type="text" name="attr_ultaction" value=""></label>
     <textarea name="attr_ulteffect"></textarea>
     </div>
   </section>
@@ -74,29 +72,26 @@
     <fieldset class="repeating_attacks">
         <input type="checkbox" class="sheet-toggle-show" >
         <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name}}} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}}  {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]] @{damagetype}}} {{Effect=@{attackeffects}}}" > </button>
-        <input type="text" name="attr_attackname" value="">
+        <input type="text" class=text160 name="attr_attackname" value=""><span>Range<input type="text" class=text105 name="attr_attackrange" value=""></span><br>
         <div class="sheet-body">
-        <label>Type<input type="text" name="attr_attacktype" value=""></label>
-        <label>Range<input type="text" name="attr_attackrange" value=""></label>
-        <label>Tags<input type="text" name="attr_attacktags" value=""></label>
-        <span><b>Damage</b><input type="text" class=smallerTextbox name="attr_attackdamage" value=""></span><span><b>Type</b><input type="text" name="attr_damagetype" class=resizedTextbox value=""></span></br>
-        <label>Effects<input type="text" name="attr_attackeffects" value=""></label>
+        <span>Type<input type="text" class=text105 name="attr_attacktype" value=""></span><span>Damage<input type="text" class=smallerTextbox name="attr_attackdamage" value=""></span><span>Type<input type="text" name="attr_damagetype" class=text60 value=""></span><br>    
+        <span>Tags<input type="text" name="attr_attacktags" value=""></span>Effects? <input type="checkbox" class="sheet-toggle-show"><br>
+        <div class="sheet-body">
+        <textarea class=textAtks name="attr_attackeffects" value=""></textarea></div>
         </div>
     </fieldset>
   </section>
 
 <section class="power f-col">
     <h3>Spells & Techniques</h3>
+    <div>Channel: <input type="text" class=resizedTextbox value=""></div>
     <fieldset class="repeating_powers">
         <input type="checkbox" class="sheet-toggle-show" >
         <button type="roll" name="roll_power" value="&{template:rolls} {{title=@{powername}}} {{subtitle=@{character_name} }} {{Type=@{powertype}}} {{Action=@{poweraction}}} {{Range=@{powerrange}}} {{Tags=@{powertags}}} {{Effect=@{powereffects}}}" > </button>
-        <input type="text" class=resizedTextbox name="attr_powername" value="">
+        <input type="text" class=resizedTextbox name="attr_powername" value=""><br>
         <div class="sheet-body">
-        <label>Type<input type="text" name="attr_powertype" value=""></label>
-        <label>Action<input type="text" name="attr_poweraction" value=""></label>
-        <label>Range<input type="text" name="attr_powerrange" value=""></label>
-        <label>Tags<input type="text" name="attr_powertags" value=""></label>
-        <label>Effect</label>
+        <span>Type<input type="text" class=text40 name="attr_powertype" value=""></span><span>Action<input type="text" class=text80 Textbox name="attr_poweraction" value=""></span><span>Range<input type="text" class=text105 name="attr_powerrange" value=""></span><br>
+        <span>Tags<input type="text" name="attr_powertags" value=""></span><br>
         <textarea name="attr_powereffects"></textarea>
         </div>
     </fieldset>
@@ -109,9 +104,8 @@
         <button type="roll" name="roll_support" value="&{template:rolls} {{title=@{supportname}}} {{subtitle=@{character_name}}} {{Type=@{supporttype}}} {{Tags=@{supporttags}}} {{Effects=@{supporteffects}}}"> </button>
         <input type="text" name="attr_supportname" value="">
         <div class="sheet-body">
-        <label>Type<input type="text" name="attr_supporttype" value=""></label>
-        <label>Tags<input type="text" name="attr_supporttags" value=""></label>
-        <label>Effects</label>
+        <span>Type<input type="text" name="attr_supporttype" value=""></span><br>
+        <span>Tags<input type="text" name="attr_supporttags" value=""></span><br>
         <textarea name="attr_supporteffects"></textarea>
         </div>
   </section>
@@ -131,21 +125,20 @@
     <h3>Ancestry and Job Traits</h3>
     <input type="checkbox" class="sheet-toggle-show" >
     <button type="roll" name="roll_anc" value="&{template:rolls} {{title=@{anctraitname}}} {{subtitle=@{character_name}}} {{=@{anctrait}}}" ></button>
-    <Label> Ancestry Trait <input type=text name="attr_anctraitname"></label>
+    <Label> Ancestry Trait <input type=text class=text160 name="attr_anctraitname"></label>
     <div class="sheet-body">
     <textarea name="attr_anctrait"></textarea>
     </div>
     <fieldset class="repeating_trait">
     <input type="checkbox" class="sheet-toggle-show" >
     <button type="roll" name="roll_trait" value="&{template:rolls} {{title=@{traitname}}} {{subtitle=@{character_name}}} {{=@{traiteffect}}}" ></button>
-    <input name="attr_traitname", type="text"> 
+    <input name="attr_traitname", class=text160 type="text"> 
     <div class="sheet-body">
     <textarea name="attr_traiteffect"></textarea> </div>
     </fieldset>
     </section>
 
   <footer class="f-col f-center">
-    <span>Generic copyright disclaimer</span>
     <span>BEACON created by Tim Gonzalez & Pirate Gonzalez Games. This sheet is a modification of Anduh's Roll20-grid-template - thank you very much for the template. </span>
   </footer>
 
@@ -161,8 +154,8 @@
   </section>
 
 <section class="npc-base">
-    <div>Name:<input name="attr_character_name" type="text" class=resizedTextbox></div>
-    <div><span>Tier:</span><input name="attr_tier" type="number"><span>Size</span><input name="attr_size" type="number"></div>
+    <div>Name <input name="attr_character_name" type="text" class=resizedTextbox></div>
+    <div><span>Tier </span><input name="attr_tier" type="number"><span>Size</span><input name="attr_size" type="number"></div>
     <div>Initiative<input name="attr_initiative" type="number"></div>
     <div class="f-row nowrap">
       <div>Bulk</div>
@@ -208,14 +201,13 @@
     <fieldset class="repeating_attacks">
         <input type="checkbox" class="sheet-toggle-show" >
         <button type="roll" name="roll_attack" value="&{template:rolls} {{title=@{attackname}}} {{subtitle=@{character_name}}} {{Type=@{attacktype}}} {{Range=@{attackrange}}} {{Tags=@{attacktags}}} {{To Hit= [[1d20+@{npctohit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[@{attackdamage}]] @{damagetype}}} {{Effect=@{attackeffects}}}" > </button>
-        <input type="text" name="attr_attackname" value="">
+        <input type="text" class=text160 name="attr_attackname" value=""><span>Range<input type="text" class=text105 name="attr_attackrange" value=""></span><br>
         <div class="sheet-body">
-        <label>Type<input type="text" name="attr_attacktype" value=""></label>
-        <label>Range<input type="text" name="attr_attackrange" value=""></label>
-        <label>Tags<input type="text" name="attr_attacktags" value=""></label>
-        <label>To Hit<input type="text" name="attr_npctohit" class=smallerTextbox value=""></label>
-        <span><b>Damage</b><input type="text" class=smallerTextbox name="attr_attackdamage" value=""></span><span><b>Type</b><input type="text" name="attr_damagetype" class=resizedTextbox value=""></span></br>
-        <label>Effect<input type="text" name="attr_attackeffects" value=""></label>
+        <span>To Hit<input type="text" name="attr_npctohit" class=smallerTextbox value=""></span><span>Damage<input type="text" class=smallerTextbox name="attr_attackdamage" value=""></span><span>Type<input type="text" name="attr_damagetype" class=resizedTextbox value=""></span><br>
+        <span>Tags<input type="text" name="attr_attacktags" value=""></span>Effects? <input type="checkbox" class="sheet-toggle-show"><br>
+        <div class="sheet-body">
+        <textarea class=textAtks name="attr_attackeffects" value=""></textarea></div>
+        </div>
         </div>
     </fieldset>
   </section>
@@ -231,7 +223,6 @@
         <label>Action<input type="text" name="attr_poweraction" value=""></label>
         <label>Range<input type="text" name="attr_powerrange" value=""></label>
         <label>Tags<input type="text" name="attr_powertags" value=""></label>
-        <label>Effects</label>
         <textarea name="attr_powereffects"></textarea>
         </div>
     </fieldset>
@@ -244,7 +235,7 @@
     <button type="roll" name="roll_trait" value="&{template:rolls} {{title=@{traitname}}} {{subtitle=@{character_name}}} {{Effect=@{traiteffect}}}" ></button>
     <input name="attr_traitname", type="text" class=resizedTextbox> 
     <div class="sheet-body">
-    <textarea class=NPCTextarea name="attr_traiteffect"></textarea> </div>
+    <textarea name="attr_traiteffect"></textarea> </div>
     </fieldset>
   </section>
   
@@ -286,6 +277,29 @@
     <h3>Surge</h3>
     <p>You can surge 1/round to take a 2nd turn. A surge counts as a turn for all effects that start or end at the character's next turn.
     You gain your standard movement, standard action, and quick action as normal.</p>
+    
+    <table>
+        <tr>
+            <th>Surge #</th>
+            <th>Stress Cost</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1d3+1</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>1d6+2</td>
+        </tr>
+        <tr>
+            <td>4+</td>
+            <td>1d6+4</td>
+        </tr>
+    </table>
 </section>
 
 <section class="reactions">
@@ -307,7 +321,7 @@
 
 <section class="gen_misc">
     <h3>Other Actions</h3>
-    <label><button type="roll" name="roll_defend" value="&{template:rolls} {{title=Defend}} {{subtitle=@{character_name}}} {{Action=(1) BOLSTER}} {{=Gain [[1d3+@{armor}]] Focus. Until the start of your next turn, attacks against you gain +1 DIF.}}"></button>Defend (Phase 1)</label>
+    <label><button type="roll" name="roll_defend" value="&{template:rolls} {{title=Defend}} {{subtitle=@{character_name}}} {{Action=(1) BOLSTER}} {{=Gain [[1d3+@{armor}]] Focus. Until the start of your next turn, attacks against you gain +1 DIF.}}"></button>(1) Defend</label>
     <label><button type="roll" name="roll_recover" value="&{template:rolls} {{title=Recover}} {{subtitle=@{character_name}}} {{Action=(1) BOLSTER}} {{=Choose one: 
     • Spend a Recovery to regain all your HP
     • Clear all your Stress
@@ -317,19 +331,19 @@
     • Reload all reloading weapons/abilities
     • Clear all Discord on yourself
     • Clear a condition or effect on you that wasn't caused by yourself
-    • Clear a condition or effect on an adjacent ally that awsn't caused by them}}"></button>Recover (Phase 1)</label>
-    <label><button type="roll" name="roll_mark" value="&{template:rolls} {{title=Mark}} {{subtitle=@{character_name}}} {{Action=(3) SKIRMISH}} {{Scope=@{scope}}} {{=A character within your Scope and Line of Sight gains the MARKED condition.}}"></button>Mark (Phase 3)</label>
-    <label><button type="roll" name="roll_minorcast" value="&{template:rolls} {{title=Minor Cast}} {{subtitle=@{character_name}}} {{Action=(3) CAST}} {{Tags=Mana 1}} {{Scope=@{scope}}} {{Effect=You deal 2 Stress to a target within Scope.}}"></button>Minor Cast (Phase 3)</label>
-    <label><button type="roll" name="roll_hide" value="&{template:rolls} {{title=Hide}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You gain the HIDDEN condition. To hide, you can't be ENGAGED and either must be A) outside of enemy Line of Sight, B) benefiting from cover against enemies that have Line of Sight to you, or C) INVISIBLE.}}"></button>Hide (Phase 4)</label>
+    • Clear a condition or effect on an adjacent ally that awsn't caused by them}}"></button>(1) Recover</label>
+    <label><button type="roll" name="roll_mark" value="&{template:rolls} {{title=Mark}} {{subtitle=@{character_name}}} {{Action=(3) SKIRMISH}} {{Scope=@{scope}}} {{=A character within your Scope and Line of Sight gains the MARKED condition.}}"></button>(3) Mark</label>
+    <label><button type="roll" name="roll_minorcast" value="&{template:rolls} {{title=Minor Cast}} {{subtitle=@{character_name}}} {{Action=(3) CAST}} {{Tags=Mana 1}} {{Scope=@{scope}}} {{Effect=You deal 2 Stress to a target within Scope.}}"></button>(3) Minor Cast</label>
+    <label><button type="roll" name="roll_hide" value="&{template:rolls} {{title=Hide}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You gain the HIDDEN condition. To hide, you can't be ENGAGED and either must be A) outside of enemy Line of Sight, B) benefiting from cover against enemies that have Line of Sight to you, or C) INVISIBLE.}}"></button>(4) Hide</label>
     <p>Can't Hide while ENGAGED and must be A) outside of enemy LoS, B) in cover from enemies with LoS to you, or C) INVISIBLE.</p>
-    <label><button type="roll" name="roll_rush" value="&{template:rolls} {{title=Rush}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You can either A) Move up to your speed or B) not provoke reactions from movement this turn.}}"></button>Rush (Phase 4)</label>
+    <label><button type="roll" name="roll_rush" value="&{template:rolls} {{title=Rush}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You can either A) Move up to your speed or B) not provoke reactions from movement this turn.}}"></button>(4) Rush</label>
     <p>Either A) Move up to your speed or B) don't provoke reactions from movement this turn.</p>
-    <label><button type="roll" name="roll_improvised" value="&{template:rolls} {{title=Improvised Attack}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[1d3]] Physical}}"></button>Improvised Attack (Phase 5)</label>
-    <label><button type="roll" name="roll_grapple" value="&{template:rolls} {{title=Grapple}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, both characters are GRAPPLED.}}"></button>Grapple (Phase 5)</label>
+    <label><button type="roll" name="roll_improvised" value="&{template:rolls} {{title=Improvised Attack}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[1d3]] Physical}}"></button>(5) Improvised Attack</label>
+    <label><button type="roll" name="roll_grapple" value="&{template:rolls} {{title=Grapple}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, both characters are GRAPPLED.}}"></button>(5) Grapple</label>
     <label><button type="roll" name="roll_grapple_ref" value="&{template:rolls} {{title=GRAPPLED Reference}} {{=While grappled, both characters count as ENGAGED and can't take Reactions. The larger character can move normally. The smaller character is IMMOBILIZED, but is drug along by the larger character. If you are the same size as the target, you count as the larger one during the turn you grapple them. Characters that are the same size can make a contested BLK check during their turn to see if they count as the larger one that turn.
     
     GRAPPLED ends if the characters are no longer adjacent to each other, the initiator ends it as a free action, or the grapple target succeeds on an opposed BLK check as a Quick Action.}}"></button>GRAPPLED Ref</label>
-    <label><button type="roll" name="roll_shove" value="&{template:rolls} {{title=Shove}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, you can either Push them 1 space, or knock them PRONE}}"></button>Shove (Phase 5)</label>
+    <label><button type="roll" name="roll_shove" value="&{template:rolls} {{title=Shove}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{grit} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, you can either Push them 1 space, or knock them PRONE}}"></button>(5) Shove</label>
 </section>
 
 <section class="wounds">
@@ -389,6 +403,48 @@
         </tr>
     </table>
 
+</section>
+
+<section class=phase>
+    <h3>Phase Reference</h3>
+    <table>
+        <tr>
+            <th>PHASE</th>
+            <th>Standard Action</th>
+        </tr>
+        <tr>
+            <td>(1) BOLSTER</td>
+            <td>Defend / Recover</td>
+        </tr>
+        <tr>
+            <td>(2) CHANNEL</td>
+            <td>Channel</td>
+        </tr>
+        <tr>
+            <td>(3) SKIRMISH</td>
+            <td>Volley / Cast / Mark / Search </td>
+        </tr>
+        <tr>
+            <td>(4) REPOSITION</td>
+            <td>Rush / Hide</td>
+        </tr>
+        <tr>
+            <td>(5) BRAWL</td>
+            <td>Fight / Shove / Grapple</td>
+        </tr>
+        <tr>
+            <td>(6) RELEASE</td>
+            <td>Release</td>
+        </tr>
+        <tr>
+            <td>(7) FULL ATTACK</td>
+            <td>Full Attack</td>
+        </tr>
+        <tr>
+            <td>(8) DELAY</td>
+            <td>Any</td>
+        </tr>
+    </table>
 </section>
 
 <!-- roll template -->
