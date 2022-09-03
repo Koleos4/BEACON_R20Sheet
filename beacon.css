@@ -162,7 +162,7 @@ input[type="number"] {
 }
 
 .charsheet input[type="number"]{
-    width:30px !important;}
+    width:40px !important;}
 
 .charsheet input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
 .charsheet input.sheet-toggle-hide:checked ~ div.sheet-body {
