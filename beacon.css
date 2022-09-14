@@ -64,7 +64,7 @@ main.sheet-character {
   grid-template-areas:"header   header  header  header  header  header"
                       "skill    skill   bars    bars    power   power"
                       "stats    stats   attack  attack  power   power"
-                      "ult      ult     attack  attack  power   power"
+                      "ult      ult     attack  attack  talent  talent"
                       "misc     misc    inv     inv     talent  talent"
                       "misc     misc    inv     inv     talent  talent"
                       "misc     misc    inv     inv     talent  talent"
@@ -93,9 +93,9 @@ section.skill div.f-row {text-align:center;}
 section.skill input {width:70%;}
 section.skill div div {width:70px; display:inline-block;}
 
-section.bars div {width:100px; display:inline-block;}
+section.bars div {width:70px; display:inline-block;}
 section.bars div.f-row {text-align:center;}
-section.bars div div {width:100px; display:inline-block;}
+section.bars div div {width:70px; display:inline-block;}
 
 section.npc-stats div {width:100px; display:inline-block;}
 section.npc-stats div.f-row {text-align:center;}
