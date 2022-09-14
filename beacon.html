@@ -18,33 +18,34 @@
     <span>Job <input name="attr_job" type="text" list="jobs" class=jobBox> Ancestry <input name="attr_ancestry" type="text" list="ancestries" class=ancestryBox></span><br>
     <div class="f-row nowrap">
       <div>Bulk</div>
-      <input type="number" name="attr_blk" value=" ">
+      <input type="number" name="attr_blk" value="">
       <button type="roll" name="roll_blk" value="&{template:rolls} {{title=Bulk}} {{subtitle=@{character_name} }} {{roll= [[1d20+@{blk} +?{Accuracy/Difficulty|0}d6k1]]}}"> </button>
     </div>
     <div class="f-row nowrap">
       <div>Agility</div>
-      <input type="number" name="attr_agi" value=" ">
+      <input type="number" name="attr_agi" value="">
       <button type="roll" name="roll_agi" value="&{template:rolls} {{title=Agility}} {{subtitle=@{character_name} }} {{roll= [[d20+@{agi}[agi] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
     </div>
     <div class="f-row nowrap">
       <div>Mind</div>
-      <input type="number" name="attr_mnd" value="3">
+      <input type="number" name="attr_mnd" value="">
       <button type="roll" name="roll_mnd" value="&{template:rolls} {{title=Mind}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mnd}[mnd] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
     </div>
     <div class="f-row nowrap">
       <div>Magic</div>
-      <input type="number" name="attr_mgk" value="3">
+      <input type="number" name="attr_mgk" value="">
       <button type="roll" name="roll_mgk" value="&{template:rolls} {{title=Magic}} {{subtitle=@{character_name} }} {{roll= [[d20+@{mgk}[mgk] +?{Accuracy/Difficulty|0}d6k1 ]]}}"> </button>
     </div>
   </section>
 
   <section class="stats common">
-      <div>Grit</div><input name="attr_grit" type="number">
-      <div>Size</div><input name="attr_size" type="number"><br/>
-      <div>Dodge</div><input name="attr_dodge" type="number">
-      <div>A-Def</div><input name="attr_a-def" type="number"><br/>
-      <div>Save Target</div><input name="attr_save" type="number">
-      <div>Scope</div><input name="attr_scope" type="number"><br/>
+      <div>Level</div><input name="attr_level" type="number">
+      <div>Grit</div><input name="attr_grit" type="number"><br/>
+      <div>Size</div><input name="attr_size" type="number">
+      <div>Dodge</div><input name="attr_dodge" type="number"><br/>
+      <div>A-Def</div><input name="attr_a-def" type="number">
+      <div>Save Target</div><input name="attr_save" type="number"><br/>
+      <div>Scope</div><input name="attr_scope" type="number">
       <div>Speed</div><input name="attr_speed" type="number">
   </section>
   
@@ -59,10 +60,10 @@
 
   <section class="bars">
       <div>Armor</div> <input type="number" name="attr_armor" value="">
-      <div>Focus</div> <input type="number" name="attr_focus" value=" ">
+      <div>Focus</div> <input type="number" name="attr_focus" value=" "><br>
       <div>Temp HP</div> <input type="number" name="attr_temphp" value=" "><br/>
-      <div>HP</div> <input type="number" name="attr_3 hp" value=" "> <span>/</span> <input type="number" name="attr_3 hp_max" value=" "><br/>
-      <div>Stress</div> <input type="number" name="attr_1 stress cap" value=" "> / <input type="number" name="attr_1 stress cap_max" value=" "><br/>
+      <div>HP</div> <input type="number" name="attr_3 hp" value=" "> <span>/</span> <input type="number" name="attr_3 hp_max" value=" "><div>Wounds</div><input type="number" name="attr_wound" value=""><span>/</span><input type="number" name="attr_wound_max" value=""></span><br/>
+      <div>Stress</div> <input type="number" name="attr_1 stress cap" value=" "> / <input type="number" name="attr_1 stress cap_max" value=" "><div>Overstress</div><input type="number" name="attr_overstress" value=""><span>/</span><input type="number" name="attr_overstress_max" value=""></span><br/>
       <div>Mana</div> <input type="number" name="attr_2 mana" value=" "> / <input type="number" name="attr_2 mana_max" value=" "><br/>
       <div>Recoveries</div> <input type="number" name="attr_rec" value=" "> / <input type="number" name="attr_rec_max" value=" ">
   </section>
@@ -269,9 +270,9 @@
     <h3>Reroll Table</h3>
     <p>When you make an attack roll, ability check, or saving throw, you can use the reroll table to try again. Each option can only be chosen 1/round.
     You can use the reroll table after finding out if the roll would succeed, but before it actually occurs. All ACC or DIF are also rerolled.</p>
-    <p><button type="roll" name="roll_rerollstress" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=[[1d3]] Stress}}"></button>A: Take 1d3 Stress</p>
-    <p><button type="roll" name="roll_rerollmark" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=Become MARKED. This doesn't count as a condition you've given yourself.}}"></button>B: Become MARKED. You can't use this option if you are MARKED. This doesn't count as a condition you've given yourself.</p>
-    <p><button type="roll" name="roll_rerollopp" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=If you are adjacent to an enemy or within Reach of an enemy's weapon, they can choose to A) Opportunity Attack you or B) deal [[3]] Physical to you as a reaction.}}"></button>C: If you are adjacent to an enemy or within one of their weapon's REACH, they can choose to a) Opportunity Attack you or b) deal 3 Physical to you as a Reaction.</p>
+    <p><button type="roll" name="roll_rerollstress" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=[[1d3]] Stress}}"></button><input type="checkbox"> A: Take 1d3 Stress</p>
+    <p><button type="roll" name="roll_rerollmark" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=Become MARKED. This doesn't count as a condition you've given yourself.}}"></button><input type="checkbox"> B: Become MARKED. You can't use this option if you are MARKED. This doesn't count as a condition you've given yourself.</p>
+    <p><button type="roll" name="roll_rerollopp" value="&{template:rolls} {{title=Reroll Table}} {{subtitle=@{character_name}}} {{=If you are adjacent to an enemy or within Reach of an enemy's weapon, they can choose to A) Opportunity Attack you or B) deal [[3]] Physical to you as a reaction.}}"></button><input type="checkbox"> C: If you are adjacent to an enemy or within one of their weapon's REACH, they can choose to a) Opportunity Attack you or b) deal 3 Physical to you as a Reaction.</p>
 </section>
 
 <section class="surge">
