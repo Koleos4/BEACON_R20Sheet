@@ -5,13 +5,24 @@
 */
 
 .charsheet main.sheet-character,
-.charsheet main.sheet-npc {
+.charsheet main.sheet-gen,
+.charsheet main.sheet-npc,
+.charsheet main.sheet-npcgen{
     display: none;
 }
 
 .charsheet .sheet-tabstoggle[value=character] ~ main.sheet-character,
 .charsheet .sheet-tabstoggle[value=npc] ~ main.sheet-npc,
-.charsheet .sheet-tabstoggle[value=gen] ~main.sheet-gen {
+.charsheet .sheet-tabstoggle[value=gen] ~main.sheet-gen,
+.charsheet .sheet-tabstoggle[value=npcgen] ~main.sheet-npcgen{
+    display: grid;
+}
+
+/*.charsheet .sheet-tabstoggle[value=character] ~main.sheet-gen{
+    display: grid;
+}*/
+
+.charsheet .sheet-tabstoggle[value=npc] ~main.sheet-npcgen{
     display: grid;
 }
 
@@ -41,6 +52,10 @@
     background-color: white;
 }
 
+table {
+    margin-left: auto;margin-right:auto;
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -52,6 +67,19 @@ th, td {
 
 th {
   white-space: nowrap;
+  padding: 5px;
+}
+
+table.b, th.b, td.b {
+    border: none
+}
+
+th.b, td.b {
+    text-align: left;
+}
+
+th.b {
+  padding: 0px;
 }
 
 main.sheet-character {
@@ -64,7 +92,7 @@ main.sheet-character {
   grid-template-areas:"header   header  header  header  header  header"
                       "skill    skill   bars    bars    power   power"
                       "stats    stats   attack  attack  power   power"
-                      "ult      ult     attack  attack  talent  talent"
+                      "ult      ult     attack  attack  power   power"
                       "misc     misc    inv     inv     talent  talent"
                       "misc     misc    inv     inv     talent  talent"
                       "misc     misc    inv     inv     talent  talent"
@@ -131,6 +159,13 @@ input[type="number"] {
   justify-content: center;
 }
 
+.sheet-flex-gauge-column
+{
+    flex-shrink:0;
+    display:flex;
+    flex-flow:column;
+}
+
 .ancestryBox{width:80px;
 }
 .jobBox{width:100px;
@@ -167,6 +202,10 @@ input[type="number"] {
 .charsheet input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
 .charsheet input.sheet-toggle-hide:checked ~ div.sheet-body {
     display: none;
+}
+
+.charsheet input[type="checkbox"]{
+    min-width:0;
 }
 
 /*------------- Section-specific CSS -------------*/
@@ -282,8 +321,8 @@ main.sheet-npc {
 }
 
 
-/* NPC SHEET *\
-\*           */
+/* GENERAL RULES TAB *\
+\*                   */
 main.sheet-gen {
     display: grid;
     width: 1000px;
@@ -293,8 +332,7 @@ main.sheet-gen {
     grid-template-rows: 100px 1fr 1fr 1fr 20px;
     grid-template-areas: "header    header      header      header  header"
                          "gen-misc  reactions   reactions   surge   surge"
-                         "phase     rerolltable rerolltable wounds  wounds"
-}
+                         "phase     rerolltable rerolltable wounds  wounds";}
 
 .rerolltable {
     grid-area: rerolltable
@@ -319,6 +357,30 @@ main.sheet-gen {
 .phase {
     grid-area: phase
 }
+
+
+/* NPC GENERAL RULES *\
+\*                   */
+main.sheet-npcgen {
+    display: grid;
+    width: 1000px;
+    height:900px;
+    grid-gap: 4px;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr 1fr 20px;
+    grid-template-areas: "header    header  header"
+                         "npc-gen   npc-gen npc-gen"
+                         "wounds    wounds  wounds";
+}
+
+.npc_gen {
+    grid-area: npc-gen
+}
+
+.wounds {
+    grid-area: wounds
+}
+
 
 /*------------------------------------*\
   #ROLL TEMPLATES
