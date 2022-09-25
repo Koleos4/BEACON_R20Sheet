@@ -13,8 +13,6 @@ https://docs.google.com/spreadsheets/d/1e7AkyOMZAuHrTPj60O0XYzVGLYjaDQBcjZDNHJ_k
 
 Surge roll that tracks surge level
 
-NPC generic actions (NPC shove, grapple, recover, etc.)
-
 Is there a way to format the roll template so that if an input is blank, it doesn't show the line on the output?
 In theory something here: https://wiki.roll20.net/Building_Character_Sheets/Roll_Templates or here https://gist.github.com/joesinghaus/28173990b3235365f6e13fb9f834aa5d should help with this goal
 
