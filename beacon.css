@@ -18,9 +18,9 @@
     display: grid;
 }
 
-/*.charsheet .sheet-tabstoggle[value=character] ~main.sheet-gen{
+.charsheet .sheet-tabstoggle[value=character] ~main.sheet-gen{
     display: grid;
-}*/
+}
 
 .charsheet .sheet-tabstoggle[value=npc] ~main.sheet-npcgen{
     display: grid;
