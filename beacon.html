@@ -482,26 +482,26 @@
 
 <section class="npc_gen">
     <h3>Other Actions</h3>
-    <label><button type="roll" name="roll_npcdefend" value="&{template:rolls} {{title=Defend}} {{subtitle=@{character_name}}} {{Action=(1) BOLSTER}} {{=Attacks against this unit have +1 DIF until the start of their next turn.}}"></button>(1) Defend</label>
-    <label><button type="roll" name="roll_npcrecover" value="&{template:rolls} {{title=Recover}} {{subtitle=@{character_name}}} {{Action=(1) BOLSTER}} {{=Choose one: 
+    <label><button type="roll" name="roll_npcdefend" value="&{template:rolls} {{title=Defend}} {{subtitle=@{character_name}}} {{Action=BOLSTER}} {{=Attacks against this unit have +1 DIF until the start of their next turn.}}"></button>Defend</label>
+    <label><button type="roll" name="roll_npcrecover" value="&{template:rolls} {{title=Recover}} {{subtitle=@{character_name}}} {{Action=BOLSTER}} {{=Choose one: 
     • Clear all Stress
     • Regain all Mana
     
     Then choose one: 
     • Reload all reloading weapons/abilities
-    • Clear a condition on you that wasn't caused by yourself}}"></button>(1) Recover</label>
-    <label><button type="roll" name="roll_mark" value="&{template:rolls} {{title=Mark}} {{subtitle=@{character_name}}} {{Action=(3) SKIRMISH}} {{Scope=@{scope}}} {{=A character within your Scope and Line of Sight gains the MARKED condition.}}"></button>(3) Mark</label>
-    <label><button type="roll" name="roll_minorcast" value="&{template:rolls} {{title=Minor Cast}} {{subtitle=@{character_name}}} {{Action=(3) CAST}} {{Tags=Mana 1}} {{Scope=@{scope}}} {{Effect=You deal 2 Stress to a target within Scope.}}"></button>(3) Minor Cast</label>
-    <label><button type="roll" name="roll_hide" value="&{template:rolls} {{title=Hide}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You gain the HIDDEN condition. To hide, you can't be ENGAGED and either must be A) outside of enemy Line of Sight, B) benefiting from cover against enemies that have Line of Sight to you, or C) INVISIBLE.}}"></button>(4) Hide</label>
+    • Clear a condition on you that wasn't caused by yourself}}"></button>Recover</label>
+    <label><button type="roll" name="roll_mark" value="&{template:rolls} {{title=Mark}} {{subtitle=@{character_name}}} {{Action=SKIRMISH}} {{Scope=@{scope}}} {{=A character within your Scope and Line of Sight gains the MARKED condition.}}"></button>Mark</label>
+    <label><button type="roll" name="roll_minorcast" value="&{template:rolls} {{title=Minor Cast}} {{subtitle=@{character_name}}} {{Action=CAST}} {{Tags=Mana 1}} {{Scope=@{scope}}} {{Effect=You deal 2 Stress to a target within Scope.}}"></button>Minor Cast</label>
+    <label><button type="roll" name="roll_hide" value="&{template:rolls} {{title=Hide}} {{subtitle=@{character_name}}} {{Action=REPOSITION}} {{=You gain the HIDDEN condition. To hide, you can't be ENGAGED and either must be A) outside of enemy Line of Sight, B) benefiting from cover against enemies that have Line of Sight to you, or C) INVISIBLE.}}"></button>Hide</label>
     <p>Can't Hide while ENGAGED and must be A) outside of enemy LoS, B) in cover from enemies with LoS to you, or C) INVISIBLE.</p>
-    <label><button type="roll" name="roll_rush" value="&{template:rolls} {{title=Rush}} {{subtitle=@{character_name}}} {{Action=(4) REPOSITION}} {{=You can either A) Move up to your speed or B) not provoke reactions from movement this turn.}}"></button>(4) Rush</label>
+    <label><button type="roll" name="roll_rush" value="&{template:rolls} {{title=Rush}} {{subtitle=@{character_name}}} {{Action=REPOSITION}} {{=You can either A) Move up to your speed or B) not provoke reactions from movement this turn.}}"></button>Rush</label>
     <p>Either A) Move up to your speed or B) don't provoke reactions from movement this turn.</p>
-    <label><button type="roll" name="roll_npcimprovised" value="&{template:rolls} {{title=Improvised Attack}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{tier} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[1d3]] Physical}}"></button>(5) Improvised Attack</label>
-    <label><button type="roll" name="roll_npcgrapple" value="&{template:rolls} {{title=Grapple}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{tier} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, both characters are GRAPPLED.}}"></button>(5) Grapple</label>
+    <label><button type="roll" name="roll_npcimprovised" value="&{template:rolls} {{title=Improvised Attack}} {{subtitle=@{character_name}}} {{Action=FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{tier} +?{Accuracy/Difficulty|0}d6k1]]}} {{Damage=[[1d3]] Physical}}"></button>Improvised Attack</label>
+    <label><button type="roll" name="roll_npcgrapple" value="&{template:rolls} {{title=Grapple}} {{subtitle=@{character_name}}} {{Action=FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{tier} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, both characters are GRAPPLED.}}"></button>Grapple</label>
     <label><button type="roll" name="roll_grapple_ref" value="&{template:rolls} {{title=GRAPPLED Reference}} {{=While grappled, both characters count as ENGAGED and can't take Reactions. The larger character can move normally. The smaller character is IMMOBILIZED, but is drug along by the larger character. If you are the same size as the target, you count as the larger one during the turn you grapple them. Characters that are the same size can make a contested BLK check during their turn to see if they count as the larger one that turn.
     
     GRAPPLED ends if the characters are no longer adjacent to each other, the initiator ends it as a free action, or the grapple target succeeds on an opposed BLK check as a Minor Action.}}"></button>GRAPPLED Ref</label>
-    <label><button type="roll" name="roll_npcshove" value="&{template:rolls} {{title=Shove}} {{subtitle=@{character_name}}} {{Action=(5) FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{tier} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, you can either Push them 1 space, or knock them PRONE}}"></button>(5) Shove</label>
+    <label><button type="roll" name="roll_npcshove" value="&{template:rolls} {{title=Shove}} {{subtitle=@{character_name}}} {{Action=FIGHT}} {{Range=Adjacent}} {{To Hit= [[1d20+@{tier} +?{Accuracy/Difficulty|0}d6k1]]}} {{Effect=On a hit, you can either Push them 1 space, or knock them PRONE}}"></button>Shove</label>
 </section>
 
 <section class="wounds">
